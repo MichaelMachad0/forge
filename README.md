@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FORGE
 
-## Getting Started
+**Software Engineering**
 
-First, run the development server:
+Building software that scales.
+
+Portfólio profissional (MVP) construído para transmitir excelência em engenharia
+de software, arquitetura, produto e IA. Design premium, dark-mode-first,
+inspirado em produtos como Vercel, Stripe, Linear, Raycast, Arc Browser e
+Supabase.
+
+Domínio: [forge.michaelmachado.dev](https://forge.michaelmachado.dev)
+
+## Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, React Server Components)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Framer Motion](https://motion.dev/) — micro animações
+- [Lucide Icons](https://lucide.dev/)
+- Metadata API nativa do Next.js para SEO (title, OG, Twitter Card,
+  `sitemap.xml`, `robots.txt` e favicon/OG image gerados dinamicamente)
+
+## Como rodar localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variáveis de ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copie `.env.example` para `.env.local` e ajuste a URL pública do site (usada em
+metadata, Open Graph, sitemap e robots.txt):
 
-## Learn More
+```bash
+NEXT_PUBLIC_SITE_URL=https://forge.michaelmachado.dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura do projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                 # Rotas, layout raiz, metadata e SEO (sitemap, robots, OG image, ícones)
+  components/
+    layout/            # Navbar e Footer
+    sections/          # Hero, Sobre, Projetos, Contato
+    ui/                # Design system: Button, Badge, Container, ProjectCard, FadeIn...
+  data/                # Conteúdo estruturado: projetos e áreas de foco
+  lib/                 # Configuração do site (site-config.ts) e utilitários
+  types/               # Tipos compartilhados (ex: Project)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Adicionando um novo projeto
 
-## Deploy on Vercel
+Edite `src/data/projects.ts` e adicione um novo objeto ao array `projects`.
+O card é renderizado automaticamente na seção **Projetos**, sem necessidade de
+alterar nenhum componente:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+{
+  slug: "novo-projeto",
+  name: "Novo Projeto",
+  description: "Descrição curta e objetiva.",
+  tags: ["Next.js", "TypeScript"],
+  status: "Em desenvolvimento",
+  href: "https://...", // opcional
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Internacionalização
+
+Todo o conteúdo textual está centralizado em `src/lib/site-config.ts` e nos
+componentes de seção, o que facilita a futura extração para arquivos de
+tradução (ex: `next-intl` ou `next.config` i18n) sem reestruturar a UI.
+
+## Design System
+
+As cores, espaçamentos e tipografia seguem tokens definidos em
+`src/app/globals.css` via `@theme` do Tailwind v4:
+
+| Token         | Valor     |
+| ------------- | --------- |
+| `background`  | `#09090B` |
+| `surface`     | `#111113` |
+| `primary`     | `#2563EB` |
+| `accent`      | `#60A5FA` |
+| `foreground`  | `#FAFAFA` |
+| `muted`       | `#A1A1AA` |
+
+## Deploy
+
+O projeto está pronto para deploy na [Vercel](https://vercel.com):
+
+```bash
+npm run build
+```
+
+Basta importar o repositório na Vercel e definir `NEXT_PUBLIC_SITE_URL` como
+variável de ambiente de produção.
