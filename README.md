@@ -4,99 +4,148 @@
 
 Building software that scales.
 
-Portfólio profissional (MVP) construído para transmitir excelência em engenharia
-de software, arquitetura, produto e IA. Design premium, dark-mode-first,
-inspirado em produtos como Vercel, Stripe, Linear, Raycast, Arc Browser e
-Supabase.
+---
 
-Domínio: [forge.michaelmachado.dev](https://forge.michaelmachado.dev)
+## Michael Machado
+
+**Founder & Full Stack Software Engineer**
+
+SaaS · AI · Automation · Software Architecture
+
+---
+
+## What is FORGE?
+
+FORGE is the public professional portfolio of Michael Machado. It presents how products are conceived, architected, engineered, and evolved — with clarity, discipline, and restraint.
+
+This repository and site showcase:
+
+- products and product ecosystems
+- case studies and problem framing
+- software architecture thinking
+- engineering practices and quality standards
+- technical writing and process documentation
+- how software is built to scale
+
+> Status: **MVP / in active development** — not a production SaaS platform. The live site is a portfolio surface.
+
+**Site:** [forge.michaelmachado.dev](https://forge.michaelmachado.dev)
+
+---
+
+## Featured products
+
+Public positioning only. Production source code remains private.
+
+| Product | Focus |
+| --- | --- |
+| **GIA** — Gestão Inteligente e Automatizada | Modular multi-tenant SaaS platform oriented by AI and automation |
+| **SILOG** | Logistics vertical — loads, drivers, vehicles, trips, and freight operations |
+| **FinGestor Pro** | Business financial management — payables, receivables, cash flow, indicators |
+| **Cabe no Bolso** | Personal financial management — budget, expenses, goals, planning |
+| **Designações** | Organization of assignments, participants, calendar, history, and activities |
+
+Institutional technical narrative for the GIA ecosystem lives in the planned public repository `gia-showcase` (local preparation in progress; remote to be created manually).
+
+---
 
 ## Stack
 
-- [Next.js 16](https://nextjs.org/) (App Router, React Server Components)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS v4](https://tailwindcss.com/)
-- [Framer Motion](https://motion.dev/) — micro animações
-- [Lucide Icons](https://lucide.dev/)
-- Metadata API nativa do Next.js para SEO (title, OG, Twitter Card,
-  `sitemap.xml`, `robots.txt` e favicon/OG image gerados dinamicamente)
+### This repository (confirmed)
 
-## Como rodar localmente
+- [Next.js](https://nextjs.org/) (App Router)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/) (`strict`)
+- [Node.js](https://nodejs.org/) (runtime)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vercel](https://vercel.com/) (intended hosting)
+
+Also present in this codebase: Framer Motion (motion), Lucide (icons), ESLint with Next.js configs.
+
+### Product engineering (portfolio context)
+
+Across product work presented here, the engineering narrative also includes **PostgreSQL** as the relational data store for SaaS systems. That dependency is **not** part of the FORGE site runtime.
+
+---
+
+## Quality
+
+Practices confirmed or intentionally targeted in this repository:
+
+| Area | State |
+| --- | --- |
+| TypeScript strict | Enabled |
+| Lint | ESLint + `eslint-config-next` (core-web-vitals + TypeScript) |
+| Automated tests | Not configured yet |
+| Accessibility | UI built with semantic structure; continuous improvement |
+| SEO | Next.js Metadata API, `sitemap.xml`, `robots.txt`, OG image |
+| Performance | App Router + modern React; measure before claiming numbers |
+| Security | No secrets in repo; see [SECURITY.md](./SECURITY.md) |
+
+No CI badge is published until a real workflow exists.
+
+---
+
+## Links
+
+| Channel | URL |
+| --- | --- |
+| Site | https://forge.michaelmachado.dev |
+| GitHub | https://github.com/MichaelMachad0 |
+| LinkedIn | https://www.linkedin.com/in/michael-machado-qa/ |
+| Email | contato@forge.michaelmachado.dev |
+
+---
+
+## Documentation
+
+- [Architecture](./docs/architecture.md)
+- [Design principles](./docs/design-principles.md)
+- [Roadmap](./docs/roadmap.md)
+- [Portfolio audit](./docs/github-portfolio-audit.md)
+- [Pinned repositories](./docs/pinned-repositories.md)
+- [Publication security checklist](./docs/publication-security-checklist.md)
+
+Community & governance:
+
+- [Contributing](./CONTRIBUTING.md)
+- [Security](./SECURITY.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+---
+
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000).
 
-## Variáveis de ambiente
+```bash
+npm run lint
+npm run build
+```
 
-Copie `.env.example` para `.env.local` e ajuste a URL pública do site (usada em
-metadata, Open Graph, sitemap e robots.txt):
+### Environment
+
+Copy `.env.example` to `.env.local`:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://forge.michaelmachado.dev
 ```
 
-## Estrutura do projeto
+---
 
-```
-src/
-  app/                 # Rotas, layout raiz, metadata e SEO (sitemap, robots, OG image, ícones)
-  components/
-    layout/            # Navbar e Footer
-    sections/          # Hero, Sobre, Projetos, Contato
-    ui/                # Design system: Button, Badge, Container, ProjectCard, FadeIn...
-  data/                # Conteúdo estruturado: projetos e áreas de foco
-  lib/                 # Configuração do site (site-config.ts) e utilitários
-  types/               # Tipos compartilhados (ex: Project)
-```
+## License
 
-### Adicionando um novo projeto
+**All Rights Reserved** — see [LICENSE.md](./LICENSE.md).
 
-Edite `src/data/projects.ts` e adicione um novo objeto ao array `projects`.
-O card é renderizado automaticamente na seção **Projetos**, sem necessidade de
-alterar nenhum componente:
+This portfolio codebase is **not** offered as open source. You may view the public repository for professional evaluation. You may not copy, modify, redistribute, or reuse the design, content, or code without prior written permission.
 
-```ts
-{
-  slug: "novo-projeto",
-  name: "Novo Projeto",
-  description: "Descrição curta e objetiva.",
-  tags: ["Next.js", "TypeScript"],
-  status: "Em desenvolvimento",
-  href: "https://...", // opcional
-}
-```
+---
 
-### Internacionalização
+## Versão curta (PT)
 
-Todo o conteúdo textual está centralizado em `src/lib/site-config.ts` e nos
-componentes de seção, o que facilita a futura extração para arquivos de
-tradução (ex: `next-intl` ou `next.config` i18n) sem reestruturar a UI.
-
-## Design System
-
-As cores, espaçamentos e tipografia seguem tokens definidos em
-`src/app/globals.css` via `@theme` do Tailwind v4:
-
-| Token         | Valor     |
-| ------------- | --------- |
-| `background`  | `#09090B` |
-| `surface`     | `#111113` |
-| `primary`     | `#2563EB` |
-| `accent`      | `#60A5FA` |
-| `foreground`  | `#FAFAFA` |
-| `muted`       | `#A1A1AA` |
-
-## Deploy
-
-O projeto está pronto para deploy na [Vercel](https://vercel.com):
-
-```bash
-npm run build
-```
-
-Basta importar o repositório na Vercel e definir `NEXT_PUBLIC_SITE_URL` como
-variável de ambiente de produção.
+FORGE é o portfólio público de Michael Machado — Founder & Full Stack Software Engineer. Apresenta produtos SaaS, arquitetura, engenharia e processos de construção, sem expor código proprietário dos produtos comerciais. Status atual: MVP em evolução.
