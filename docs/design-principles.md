@@ -4,7 +4,7 @@
 | --- | --- |
 | **Title** | Design Principles |
 | **Purpose** | Capture the visual and communicative standards for FORGE |
-| **Scope** | Portfolio UI, copy, and public documentation tone |
+| **Scope** | Portfolio UI, copy, brand kit, and public documentation tone |
 | **Status** | Active |
 | **Last review** | 2026-07-24 |
 
@@ -20,14 +20,20 @@ Keep FORGE premium, minimal, and credible — closer to a product brand than a g
 4. **Truth over theatre** — status labels must match reality (MVP, in development, planned).
 5. **Craft visible** — typography, spacing, motion, and accessibility communicate engineering maturity.
 6. **Public safety** — never design around screenshots or copy that leak private product internals.
+7. **Cross-repo coherence** — public pillars (`gia-showcase`, `saas-architecture`, `ai-automation-examples`) should feel part of the same narrative family.
+
+## Visual direction
+
+- Dark canvas (`#09090B`) with blue primary/accent
+- High-contrast wordmark
+- Official assets from `docs/brand.md` / `public/brand/`
 
 ## Decisions
 
-- Dark, focused visual language is acceptable for this brand surface when already established in the product.
-- Motion supports hierarchy and presence; it is not entertainment noise.
 - English leads public GitHub documentation; Portuguese may appear as a short companion section.
+- Motion supports hierarchy and presence; it is not entertainment noise.
 
 ## Limits
 
-- These principles govern FORGE, not every private product UI.
+- These principles govern FORGE public surfaces.
 - Do not invent social proof, user counts, or performance scores without measurement.

@@ -10,7 +10,7 @@
 
 ## Purpose
 
-Document how the portfolio site is structured so visitors and contributors understand boundaries between content, presentation, and configuration.
+Document how the portfolio site is structured so visitors understand boundaries between content, presentation, configuration, and brand assets.
 
 ## System overview
 
@@ -21,12 +21,14 @@ flowchart TD
   sections[Section components]
   data[Structured content modules]
   config[Site configuration]
+  brand[Static brand assets]
   vercel[Vercel hosting]
 
   visitor --> nextApp
   nextApp --> sections
   sections --> data
   sections --> config
+  nextApp --> brand
   nextApp --> vercel
 ```
 
@@ -36,20 +38,37 @@ flowchart TD
 | --- | --- |
 | `src/app` | Routes, layout, metadata, SEO artifacts |
 | `src/components` | Layout, sections, UI primitives |
-| `src/data` | Structured portfolio content (products, projects, skills) |
+| `src/data` | Structured portfolio content |
 | `src/lib` | Site config and utilities |
 | `src/types` | Shared TypeScript types |
+| `public/brand` | Official static brand kit |
+
+## Ecosystem relationship
+
+```mermaid
+flowchart LR
+  forge[FORGE identity]
+  gia[gia-showcase]
+  saas[saas-architecture]
+  ai[ai-automation-examples]
+
+  forge --> gia
+  forge --> saas
+  forge --> ai
+```
+
+FORGE is the identity surface. The other public repositories carry product narrative, architecture reference, and AI examples — without exposing private commercial source.
 
 ## Decisions
 
-- Content is data-driven where practical so copy changes do not require rewriting layout components.
-- The site is a marketing/portfolio surface, not a multi-tenant application.
-- Private product backends are intentionally outside this architecture.
+- Content is data-driven where practical.
+- The site is a portfolio surface, not a multi-tenant application.
+- Brand assets are versioned under `public/brand/` and documented in `docs/brand.md`.
 
 ## Limits
 
 - No database, auth, or multi-tenant runtime in this repository.
-- Diagrams intentionally omit hosting account details, env values, and private product topologies.
+- Diagrams omit hosts, secrets, and private product topologies.
 
 ## Quality gates (current)
 

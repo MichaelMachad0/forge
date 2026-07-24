@@ -3,60 +3,53 @@
 | Field | Value |
 | --- | --- |
 | **Title** | Pinned Repositories |
-| **Purpose** | Recommend which repositories to pin on the GitHub profile and why |
-| **Scope** | GitHub profile pins for `MichaelMachad0` |
-| **Status** | Recommendation — manual action required |
+| **Purpose** | Recommend GitHub profile pins for `MichaelMachad0` |
+| **Scope** | Public profile pins only |
+| **Status** | Active recommendation |
 | **Last review** | 2026-07-24 |
 
 ## Purpose
 
-Define a pin strategy that signals founder-level SaaS / AI / architecture capability without exposing private product code.
+Signal founder-level SaaS / AI / architecture capability without exposing private product code.
 
-## Target configuration (ideal — after Phase 2)
+## Current recommended order (applied)
 
-| Order | Repository | Reason | Recommended description | Recommended topics | Social preview |
-| --- | --- | --- | --- | --- | --- |
-| 1 | `forge` | Brand home and portfolio | `FORGE — Software Engineering portfolio. Building software that scales.` | `portfolio`, `nextjs`, `typescript`, `software-engineering`, `saas` | Dark FORGE wordmark on brand background; slogan subtitle |
-| 2 | `gia-showcase` | Public product narrative without IP | `Public product & engineering showcase for GIA — modular multi-tenant SaaS.` | `saas`, `architecture`, `multi-tenant`, `ai`, `showcase` | Abstract platform diagram; no UI with real data |
-| 3 | `saas-architecture` | Architecture authority | `Reference patterns for modular multi-tenant SaaS architecture.` | `architecture`, `saas`, `system-design`, `typescript` | Clean Mermaid/architecture graphic |
-| 4 | `ai-automation-examples` | AI + automation proof | `Practical examples of AI-assisted automation patterns for product engineering.` | `ai`, `automation`, `examples`, `typescript` | Abstract automation flow |
-| 5 | `nextjs-enterprise-starter` | Delivery craft | `Opinionated Next.js starter for serious product engineering.` | `nextjs`, `typescript`, `starter`, `enterprise` | Minimal starter hero |
-| 6 | `primeiros-passos-cypress` | Quality engineering signal | `Hands-on Cypress automation fundamentals.` | `cypress`, `testing`, `qa`, `javascript` | Simple test-runner motif |
+| Order | Repository | Reason |
+| --- | --- | --- |
+| 1 | `forge` | Brand home and portfolio |
+| 2 | `gia-showcase` | Public product narrative |
+| 3 | `saas-architecture` | Architecture authority |
+| 4 | `primeiros-passos-cypress` | Quality engineering signal |
+| 5 | `qa-bootcamp-atlantico-avanti-squad6` | Collaborative QA delivery |
+| 6 | `aprendendo-npm` | Learning transparency |
 
-## Provisional configuration (existing public repos only)
+## Ideal evolution
 
-Use this until `gia-showcase` and Phase 2 repositories exist.
+When ready, replace `aprendendo-npm` with `ai-automation-examples` to strengthen the AI pillar on the profile grid.
 
-| Order | Repository | Reason | Recommended description | Recommended topics | Social preview |
-| --- | --- | --- | --- | --- | --- |
-| 1 | `forge` | Primary professional brand | `FORGE — Software Engineering portfolio. Building software that scales.` | `portfolio`, `nextjs`, `typescript`, `software-engineering` | FORGE mark + slogan |
-| 2 | `primeiros-passos-cypress` | Testing / quality signal | `Cypress automation fundamentals and practice exercises.` | `cypress`, `testing`, `qa`, `javascript` | Cypress-oriented graphic |
-| 3 | `qa-bootcamp-atlantico-avanti-squad6` | Collaborative QA delivery | `Group Cypress E2E automation project from Atlântico Avanti bootcamp.` | `cypress`, `e2e`, `bootcamp`, `qa` | Neutral QA graphic (no credentials) |
-| 4 | `aprendendo-npm` | Learning transparency (weakest pin) | `Learning notes and exercises around npm fundamentals.` | `npm`, `javascript`, `learning` | Minimal typographic card |
+| Order | Repository |
+| --- | --- |
+| 1 | `forge` |
+| 2 | `gia-showcase` |
+| 3 | `saas-architecture` |
+| 4 | `ai-automation-examples` |
+| 5 | `primeiros-passos-cypress` |
+| 6 | `qa-bootcamp-atlantico-avanti-squad6` |
 
-### Provisional notes
+## Recommended descriptions
 
-- Pins 5–6 stay empty or repeat learning repos until stronger public assets ship.
-- As soon as `gia-showcase` is published, insert it at position **2** and demote `aprendendo-npm`.
-- Prefer leaving pin slots empty over pinning weak repositories once four strong pins exist.
+| Repository | Description |
+| --- | --- |
+| `forge` | Premium software engineering portfolio focused on SaaS, AI, automation and scalable product architecture. |
+| `gia-showcase` | Public product showcase for GIA — Gestão Inteligente e Automatizada. |
+| `saas-architecture` | Reference patterns for modular multi-tenant SaaS architecture. |
+| `ai-automation-examples` | Independent TypeScript examples for generative AI, automation, agents, and integrations. |
 
-## Order rationale
+## Social preview
 
-1. **Brand first** (`forge`)
-2. **Product narrative** (`gia-showcase`)
-3. **Architecture depth** (Phase 2)
-4. **AI / automation** (Phase 2)
-5. **Implementation craft** (Phase 2)
-6. **Quality engineering** (existing Cypress work)
-
-## Manual actions
-
-1. Update each repository **About** description and topics on GitHub.
-2. Set `forge` homepage to `https://forge.michaelmachado.dev`.
-3. Add social preview images (1200×630) without sensitive screenshots.
-4. Pin via GitHub profile → Customize pins.
+Use FORGE brand covers from `public/brand/github-cover.png` / `docs/brand.md` for narrative consistency. Never use screenshots with real tenant data.
 
 ## Limits
 
 - Do not pin private repositories.
-- Do not invent stars, download counts, or production metrics in descriptions.
+- Do not invent stars, downloads, or production metrics.

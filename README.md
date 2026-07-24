@@ -4,6 +4,8 @@
 
 Building software that scales.
 
+![FORGE Open Graph](./docs/brand/og.png)
+
 ---
 
 ## Michael Machado
@@ -12,40 +14,65 @@ Building software that scales.
 
 SaaS · AI · Automation · Software Architecture
 
----
-
-## What is FORGE?
-
-FORGE is the public professional portfolio of Michael Machado. It presents how products are conceived, architected, engineered, and evolved — with clarity, discipline, and restraint.
-
-This repository and site showcase:
-
-- products and product ecosystems
-- case studies and problem framing
-- software architecture thinking
-- engineering practices and quality standards
-- technical writing and process documentation
-- how software is built to scale
-
-> Status: **MVP / in active development** — not a production SaaS platform. The live site is a portfolio surface.
-
-**Site:** [forge.michaelmachado.dev](https://forge.michaelmachado.dev)
+**Code. Architect. Automate. Scale.**
 
 ---
 
-## Featured products
+## Value proposition
 
-Public positioning only. Production source code remains private.
+FORGE is the public professional surface of Michael Machado. It presents how software products are conceived, architected, engineered, documented, and operated — with clarity and restraint.
+
+It is a **portfolio and engineering narrative**, not a multi-tenant SaaS product.
+
+> Status: **MVP / in active development**
+
+**Live site:** [forge.michaelmachado.dev](https://forge.michaelmachado.dev)
+
+---
+
+## Public engineering pillars
+
+| Repository | Role |
+| --- | --- |
+| [forge](https://github.com/MichaelMachad0/forge) | Professional identity and portfolio site |
+| [gia-showcase](https://github.com/MichaelMachad0/gia-showcase) | Public product narrative for the GIA ecosystem |
+| [saas-architecture](https://github.com/MichaelMachad0/saas-architecture) | Reference patterns for modular multi-tenant SaaS |
+| [ai-automation-examples](https://github.com/MichaelMachad0/ai-automation-examples) | Independent TypeScript examples for AI and automation |
+
+Commercial product source code remains private.
+
+---
+
+## Featured products (positioning only)
 
 | Product | Focus |
 | --- | --- |
-| **GIA** — Gestão Inteligente e Automatizada | Modular multi-tenant SaaS platform oriented by AI and automation |
-| **SILOG** | Logistics vertical — loads, drivers, vehicles, trips, and freight operations |
-| **FinGestor Pro** | Business financial management — payables, receivables, cash flow, indicators |
-| **Cabe no Bolso** | Personal financial management — budget, expenses, goals, planning |
-| **Designações** | Organization of assignments, participants, calendar, history, and activities |
+| **GIA** — Gestão Inteligente e Automatizada | Modular multi-tenant SaaS oriented by AI and automation |
+| **SILOG** | Logistics vertical — loads, drivers, vehicles, trips, freight |
+| **FinGestor Pro** | Business finance — payables, receivables, cash flow, indicators |
+| **Cabe no Bolso** | Personal finance — budget, expenses, goals, planning |
+| **Designações** | Assignments, participants, calendar, history, activities |
 
-Institutional technical narrative for the GIA ecosystem lives in the planned public repository `gia-showcase` (local preparation in progress; remote to be created manually).
+---
+
+## Architecture (site)
+
+```mermaid
+flowchart TD
+  visitor[Visitor]
+  nextApp[Next.js App Router]
+  sections[Section components]
+  data[Structured content]
+  config[Site configuration]
+  brand[Brand assets]
+
+  visitor --> nextApp --> sections
+  sections --> data
+  sections --> config
+  nextApp --> brand
+```
+
+Details: [docs/architecture.md](./docs/architecture.md)
 
 ---
 
@@ -53,36 +80,44 @@ Institutional technical narrative for the GIA ecosystem lives in the planned pub
 
 ### This repository (confirmed)
 
-- [Next.js](https://nextjs.org/) (App Router)
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/) (`strict`)
-- [Node.js](https://nodejs.org/) (runtime)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vercel](https://vercel.com/) (intended hosting)
+- Next.js (App Router)
+- React
+- TypeScript (`strict`)
+- Node.js
+- Tailwind CSS
+- Vercel (intended hosting)
 
-Also present in this codebase: Framer Motion (motion), Lucide (icons), ESLint with Next.js configs.
+Also present: Framer Motion, Lucide, ESLint (`eslint-config-next`).
 
-### Product engineering (portfolio context)
+### Product engineering context
 
-Across product work presented here, the engineering narrative also includes **PostgreSQL** as the relational data store for SaaS systems. That dependency is **not** part of the FORGE site runtime.
+Portfolio narrative also references **PostgreSQL** for SaaS data systems. That is not a runtime dependency of this site.
 
 ---
 
-## Quality
+## Quality gates
 
-Practices confirmed or intentionally targeted in this repository:
-
-| Area | State |
+| Gate | State |
 | --- | --- |
 | TypeScript strict | Enabled |
-| Lint | ESLint + `eslint-config-next` (core-web-vitals + TypeScript) |
-| Automated tests | Not configured yet |
-| Accessibility | UI built with semantic structure; continuous improvement |
-| SEO | Next.js Metadata API, `sitemap.xml`, `robots.txt`, OG image |
-| Performance | App Router + modern React; measure before claiming numbers |
-| Security | No secrets in repo; see [SECURITY.md](./SECURITY.md) |
+| Lint | ESLint + Next.js core-web-vitals / TypeScript |
+| Build | `npm run build` |
+| Automated tests | Not configured |
+| SEO | Metadata API, sitemap, robots, OG |
+| Accessibility | Semantic structure; continuous improvement |
+| Security | No secrets in repo — [SECURITY.md](./SECURITY.md) |
 
-No CI badge is published until a real workflow exists.
+No CI badge is published without a real workflow.
+
+---
+
+## Brand
+
+Official kit: [docs/brand.md](./docs/brand.md)
+
+- Monogram / favicon: `public/brand/`
+- Open Graph: `public/brand/og.png`
+- GitHub cover template: `public/brand/github-cover.png`
 
 ---
 
@@ -101,16 +136,13 @@ No CI badge is published until a real workflow exists.
 
 - [Architecture](./docs/architecture.md)
 - [Design principles](./docs/design-principles.md)
+- [Brand](./docs/brand.md)
 - [Roadmap](./docs/roadmap.md)
-- [Portfolio audit](./docs/github-portfolio-audit.md)
 - [Pinned repositories](./docs/pinned-repositories.md)
+- [Portfolio audit](./docs/github-portfolio-audit.md)
 - [Publication security checklist](./docs/publication-security-checklist.md)
 
-Community & governance:
-
-- [Contributing](./CONTRIBUTING.md)
-- [Security](./SECURITY.md)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
+Governance: [CONTRIBUTING](./CONTRIBUTING.md) · [SECURITY](./SECURITY.md) · [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md)
 
 ---
 
@@ -121,18 +153,13 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
 ```bash
 npm run lint
 npm run build
 ```
 
-### Environment
-
-Copy `.env.example` to `.env.local`:
-
 ```bash
+# .env.local
 NEXT_PUBLIC_SITE_URL=https://forge.michaelmachado.dev
 ```
 
@@ -142,10 +169,8 @@ NEXT_PUBLIC_SITE_URL=https://forge.michaelmachado.dev
 
 **All Rights Reserved** — see [LICENSE.md](./LICENSE.md).
 
-This portfolio codebase is **not** offered as open source. You may view the public repository for professional evaluation. You may not copy, modify, redistribute, or reuse the design, content, or code without prior written permission.
-
 ---
 
 ## Versão curta (PT)
 
-FORGE é o portfólio público de Michael Machado — Founder & Full Stack Software Engineer. Apresenta produtos SaaS, arquitetura, engenharia e processos de construção, sem expor código proprietário dos produtos comerciais. Status atual: MVP em evolução.
+FORGE é o portfólio público de Michael Machado. Apresenta identidade profissional, produtos SaaS e pilares públicos de engenharia (`gia-showcase`, `saas-architecture`, `ai-automation-examples`) sem expor código proprietário. Status: MVP.
