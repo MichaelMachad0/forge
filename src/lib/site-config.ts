@@ -16,8 +16,8 @@ export const siteConfig = {
   locale: "pt-BR",
   email: "contato@forge.michaelmachado.dev",
   links: {
-    github: "https://github.com/michaelmachado",
-    linkedin: "https://linkedin.com/in/michaelmachado",
+    github: "https://github.com/MichaelMachad0",
+    linkedin: "https://www.linkedin.com/in/michael-machado-qa/",
   },
 } as const;
 
