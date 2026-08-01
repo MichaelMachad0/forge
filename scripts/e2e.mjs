@@ -94,6 +94,25 @@ try {
   const sitemapXml = await sitemap.text();
   assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br<\/loc>/);
   assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br\/privacidade/);
+  assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br\/projetos\/gia/);
+
+  const cases = [
+    ["gia", "Uma narrativa pública de produto"],
+    ["forge", "A superfície profissional"],
+    ["saas-architecture", "Uma referência pública"],
+    ["ai-automation-examples", "Um laboratório público"],
+  ];
+
+  for (const [slug, excerpt] of cases) {
+    const projectCase = await get(`/projetos/${slug}`);
+    const projectCaseHtml = await projectCase.text();
+    assert.equal(projectCase.status, 200);
+    assert.match(projectCaseHtml, new RegExp(excerpt));
+    assert.match(projectCaseHtml, /\/brand\/cases-og\.png/);
+  }
+
+  const unknownCase = await get("/projetos/case-inexistente");
+  assert.equal(unknownCase.status, 404);
 
   console.log("E2E: domínio canônico, 404, SEO e headers verificados.");
 } finally {

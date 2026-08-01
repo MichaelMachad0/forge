@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import type { Project } from "@/types/project";
 
@@ -33,24 +34,18 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="mt-10 flex items-center justify-between border-t border-border-subtle pt-5">
         <span className="text-xs text-muted">{project.status}</span>
         <span className="inline-flex items-center gap-2 text-sm font-medium text-accent">
-          Ver superfície pública <ArrowUpRight size={16} aria-hidden />
+          Ler case <ArrowUpRight size={16} aria-hidden />
         </span>
       </div>
     </>
   );
 
-  return project.href ? (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer"
+  return (
+    <Link
+      href={`/projetos/${project.slug}`}
       className="group block h-full rounded-[1.75rem] border border-border-subtle bg-surface/55 p-7 transition-colors hover:border-border-strong hover:bg-surface sm:p-9"
     >
       {content}
-    </a>
-  ) : (
-    <article className="h-full rounded-[1.75rem] border border-border-subtle bg-surface/55 p-7 sm:p-9">
-      {content}
-    </article>
+    </Link>
   );
 }

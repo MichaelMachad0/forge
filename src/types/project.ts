@@ -10,4 +10,13 @@ export interface Project {
   status: ProjectStatus;
   href?: string;
   featured?: boolean;
+  caseStudy: {
+    summary: string;
+    challenge: string;
+    approach: string[];
+    architecture: string[];
+    evidence: string[];
+    outcome: string;
+    boundary: string;
+  };
 }
