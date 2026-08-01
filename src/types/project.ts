@@ -4,6 +4,7 @@ export interface Project {
   /** Unique, URL-safe identifier used for keys and future detail pages. */
   slug: string;
   name: string;
+  kicker: string;
   description: string;
   tags: string[];
   status: ProjectStatus;
