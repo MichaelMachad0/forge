@@ -1,18 +1,18 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { FadeIn } from "@/components/ui/fade-in";
 import { GlowBackground } from "@/components/ui/glow-background";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/social-icons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/icons/social-icons";
 import { siteConfig } from "@/lib/site-config";
 
 const channels = [
   {
-    label: "Email",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-    icon: Mail,
+    label: "WhatsApp",
+    value: siteConfig.whatsapp.display,
+    href: siteConfig.whatsapp.href,
+    icon: WhatsappIcon,
   },
   {
     label: "LinkedIn",
@@ -69,8 +69,14 @@ export function Contact() {
         </div>
 
         <FadeIn delay={0.24}>
-          <Button href={`mailto:${siteConfig.email}`} size="lg" icon={<ArrowUpRight size={18} />}>
-            Enviar uma mensagem
+          <Button
+            href={siteConfig.whatsapp.href}
+            target="_blank"
+            rel="noreferrer"
+            size="lg"
+            icon={<ArrowUpRight size={18} />}
+          >
+            Chamar no WhatsApp
           </Button>
         </FadeIn>
       </Container>
