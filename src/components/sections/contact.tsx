@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -13,12 +13,6 @@ const channels = [
     value: siteConfig.whatsapp.display,
     href: siteConfig.whatsapp.href,
     icon: WhatsappIcon,
-  },
-  {
-    label: "Email",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-    icon: Mail,
   },
   {
     label: "LinkedIn",
@@ -49,7 +43,7 @@ export function Contact() {
           />
         </FadeIn>
 
-        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
           {channels.map((channel, index) => (
             <FadeIn key={channel.label} delay={0.08 * index}>
               <a

@@ -1,5 +1,4 @@
 import type { ComponentType, SVGProps } from "react";
-import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/icons/social-icons";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
@@ -42,5 +41,4 @@ export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: siteConfig.links.github, icon: GithubIcon },
   { label: "LinkedIn", href: siteConfig.links.linkedin, icon: LinkedinIcon },
   { label: "WhatsApp", href: siteConfig.links.whatsapp, icon: WhatsappIcon },
-  { label: "Email", href: `mailto:${siteConfig.email}`, icon: Mail },
 ];
