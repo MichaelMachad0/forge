@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
+import { request } from "node:http";
 import { setTimeout as delay } from "node:timers/promises";
 import path from "node:path";
 import process from "node:process";
@@ -34,6 +35,21 @@ async function get(pathname) {
   return fetch(`${origin}${pathname}`, { redirect: "manual" });
 }
 
+async function getWithHost(pathname, host) {
+  return new Promise((resolve, reject) => {
+    const req = request(
+      `${origin}${pathname}`,
+      { headers: { host } },
+      (response) => {
+        response.resume();
+        response.on("end", () => resolve(response));
+      },
+    );
+    req.on("error", reject);
+    req.end();
+  });
+}
+
 try {
   await waitForServer();
 
@@ -56,7 +72,20 @@ try {
 
   const missing = await get("/rota-inexistente");
   assert.equal(missing.status, 404);
-  assert.match(await missing.text(), /Esta página não existe/);
+  const missingHtml = await missing.text();
+  assert.match(missingHtml, /Esta página não existe/);
+  assert.match(missingHtml, /name="robots" content="noindex"/);
+  assert.doesNotMatch(missingHtml, /name="robots" content="index, follow"/);
+
+  const canonicalRedirect = await getWithHost(
+    "/privacidade?from=www",
+    "www.michaelmachado.dev.br",
+  );
+  assert.equal(canonicalRedirect.statusCode, 308);
+  assert.equal(
+    canonicalRedirect.headers.location,
+    "https://michaelmachado.dev.br/privacidade?from=www",
+  );
 
   const robots = await get("/robots.txt");
   assert.match(await robots.text(), /https:\/\/michaelmachado\.dev\.br\/sitemap\.xml/);
@@ -66,7 +95,7 @@ try {
   assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br<\/loc>/);
   assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br\/privacidade/);
 
-  console.log("E2E: home, páginas legais, 404, SEO e headers verificados.");
+  console.log("E2E: domínio canônico, 404, SEO e headers verificados.");
 } finally {
   server.kill("SIGTERM");
 }
