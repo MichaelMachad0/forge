@@ -1,20 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
+import { StructuredData } from "@/components/structured-data";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -28,14 +17,15 @@ export const metadata: Metadata = {
     "arquitetura de software",
     "desenvolvimento SaaS",
     "inteligência artificial",
-    "portfólio de engenheiro",
-    "Next.js",
-    "TypeScript",
+    "automação",
+    "Michael Machado",
   ],
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.name,
-  alternates: {
-    canonical: "/",
+  authors: [{ name: siteConfig.person.name, url: siteConfig.url }],
+  creator: siteConfig.person.name,
+  alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: "/apple-icon",
   },
   openGraph: {
     type: "website",
@@ -44,18 +34,22 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/brand/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — ${siteConfig.slogan}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
-    images: ["/opengraph-image"],
+    images: ["/brand/og.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -63,21 +57,17 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+    <html lang="pt-BR" className="h-full antialiased">
+      <body className="min-h-full bg-background text-foreground">
+        <a className="skip-link" href="#conteudo">
+          Pular para o conteúdo
+        </a>
+        <StructuredData />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="conteudo">{children}</main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   );

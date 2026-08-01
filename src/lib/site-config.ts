@@ -1,5 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/icons/social-icons";
+import { siteUrl } from "@/lib/site-url";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
 
@@ -8,12 +9,15 @@ export const siteConfig = {
   title: "Software Engineering",
   slogan: "Building software that scales.",
   tagline:
-    "Construindo produtos SaaS, automações inteligentes e soluções escaláveis com foco em engenharia, arquitetura, inteligência artificial e experiência.",
+    "Produtos SaaS, automações com IA e sistemas preparados para evoluir — da arquitetura à experiência.",
   description:
-    "Construindo produtos SaaS, automações inteligentes e soluções escaláveis com foco em engenharia de software, arquitetura e inteligência artificial.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://forge.michaelmachado.dev",
+    "Portfólio de Michael Machado, fundador e engenheiro Full Stack especializado em SaaS, arquitetura de software, IA e automação.",
+  url: siteUrl,
   locale: "pt-BR",
-  email: "contato@forge.michaelmachado.dev",
+  person: {
+    name: "Michael Machado",
+    role: "Founder & Full Stack Software Engineer",
+  },
   whatsapp: {
     display: "+55 71 98154-4757",
     href: "https://wa.me/5571981544757",
@@ -26,9 +30,11 @@ export const siteConfig = {
 } as const;
 
 export const navItems = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
+  { label: "Sobre", href: "/#sobre" },
+  { label: "Projetos", href: "/#projetos" },
+  { label: "Princípios", href: "/#principios" },
+  { label: "Estudos", href: "/#estudos" },
+  { label: "Contato", href: "/#contato" },
 ] as const;
 
 export interface SocialLink {

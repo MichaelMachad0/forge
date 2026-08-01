@@ -4,7 +4,7 @@
 | --- | --- |
 | **Title** | Security Policy |
 | **Purpose** | Define how to report security concerns related to the FORGE portfolio |
-| **Scope** | This public repository and the public site at `forge.michaelmachado.dev` |
+| **Scope** | This public repository and the public site at `michaelmachado.dev.br` |
 | **Status** | Active |
 | **Last review** | 2026-07-24 |
 
@@ -13,14 +13,14 @@
 | Surface | Support |
 | --- | --- |
 | `forge` repository (main) | Best effort |
-| Live site `forge.michaelmachado.dev` | Best effort |
+| Live site `michaelmachado.dev.br` | Best effort |
 | Private commercial products (GIA and related) | **Out of scope for this document** — do not discuss private internals here |
 
 ## Reporting a vulnerability
 
 Please report security issues privately:
 
-- Email: `contato@forge.michaelmachado.dev`
+- Contact: use the official public channels listed on the site.
 - Subject prefix: `[SECURITY][FORGE]`
 
 Include:

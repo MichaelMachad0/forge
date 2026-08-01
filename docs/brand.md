@@ -50,9 +50,9 @@ Canonical runtime copies live under `public/brand/`. Documentation copies under 
 6. **No purple drift** — stay on the blue palette defined above.
 7. **No fake metrics** — never decorate brand assets with invented stats.
 
-## Related runtime generators
+## Runtime wiring
 
-The App Router still includes dynamic `icon.tsx` / `opengraph-image.tsx` generators. Static brand files in `public/brand/` are the **source of truth** for the official kit and for GitHub/social reuse. Wiring the site metadata exclusively to static files can be done in a later cycle without touching WIP UI sections.
+The static files in `public/brand/` are the **source of truth** for the official kit and social reuse. Runtime metadata points directly to the versioned Open Graph asset, while the approved root favicon is declared explicitly in the Metadata API.
 
 ## Limits
 

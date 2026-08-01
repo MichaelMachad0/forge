@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -21,47 +21,55 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
+
+  const closeMenu = () => setOpen(false);
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200",
         scrolled || open
-          ? "border-b border-border-subtle bg-background/80 backdrop-blur-lg"
-          : "border-b border-transparent bg-transparent",
+          ? "border-border-subtle bg-background/92 backdrop-blur-xl"
+          : "border-transparent bg-background/40",
       )}
     >
-      <Container className="flex h-16 items-center justify-between sm:h-20">
-        <a
-          href="#hero"
-          className="text-lg font-semibold tracking-tight text-foreground"
-          onClick={() => setOpen(false)}
+      <Container className="flex h-16 items-center justify-between lg:h-20">
+        <Link
+          href="/#hero"
+          className="inline-flex min-h-11 items-center gap-3 text-foreground"
+          onClick={closeMenu}
         >
-          {siteConfig.name}
-          <span className="ml-2 text-sm font-normal text-muted">
-            / {siteConfig.title}
+          <span className="text-base font-bold tracking-[-0.03em]">{siteConfig.name}</span>
+          <span className="hidden h-4 w-px bg-border-strong sm:block" />
+          <span className="hidden font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted sm:block">
+            {siteConfig.title}
           </span>
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Navegação principal" className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="inline-flex min-h-11 items-center text-sm text-muted transition-colors hover:text-foreground"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button href="#contato" size="md">
-            Entrar em contato
+        <div className="hidden lg:block">
+          <Button href="/#contato" size="md">
+            Iniciar conversa
           </Button>
         </div>
 
@@ -69,40 +77,38 @@ export function Navbar() {
           type="button"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground md:hidden"
+          aria-controls="menu-mobile"
+          onClick={() => setOpen((value) => !value)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle text-foreground lg:hidden"
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </Container>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-border-subtle bg-background/95 backdrop-blur-lg md:hidden"
-          >
-            <Container className="flex flex-col gap-1 py-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-3 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <Button href="#contato" className="mt-2 justify-center" onClick={() => setOpen(false)}>
-                Entrar em contato
-              </Button>
-            </Container>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      {open ? (
+        <nav
+          id="menu-mobile"
+          aria-label="Navegação móvel"
+          className="border-t border-border-subtle bg-background lg:hidden"
+        >
+          <Container className="flex flex-col py-4">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="flex min-h-12 items-center justify-between border-b border-border-subtle py-3 text-base text-muted last:border-0 hover:text-foreground"
+              >
+                <span>{item.label}</span>
+                <span className="font-mono text-xs text-muted">0{index + 1}</span>
+              </Link>
+            ))}
+            <Button href="/#contato" className="mt-5 min-h-12 justify-center" onClick={closeMenu}>
+              Iniciar conversa
+            </Button>
+          </Container>
+        </nav>
+      ) : null}
     </header>
   );
 }

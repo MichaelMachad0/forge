@@ -37,4 +37,4 @@ An OSI-style license would allow unrestricted commercial reuse of portfolio desi
 
 ## Contact
 
-For licensing requests: `contato@forge.michaelmachado.dev`
+For licensing requests, use the official public channels listed on the FORGE site.

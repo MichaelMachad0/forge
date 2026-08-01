@@ -52,7 +52,7 @@ Do not publish internals, schemas, migrations, endpoints, or customer data.
 
 ## Open follow-ups
 
-- Production availability of `forge.michaelmachado.dev` (separate ops cycle)
+- Production availability of `michaelmachado.dev.br` (separate ops cycle)
 - Optional pin update to include `ai-automation-examples`
 - LinkedIn URL confirmation remains non-blocking (current official: `/michael-machado-qa/`)
 - Deeper README polish for learning repos

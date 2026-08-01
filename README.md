@@ -26,7 +26,7 @@ It is a **portfolio and engineering narrative**, not a multi-tenant SaaS product
 
 > Status: **MVP / in active development**
 
-**Live site:** [forge.michaelmachado.dev](https://forge.michaelmachado.dev)
+**Official site:** [michaelmachado.dev.br](https://michaelmachado.dev.br)
 
 ---
 
@@ -125,10 +125,10 @@ Official kit: [docs/brand.md](./docs/brand.md)
 
 | Channel | URL |
 | --- | --- |
-| Site | https://forge.michaelmachado.dev |
+| Site | https://michaelmachado.dev.br |
 | GitHub | https://github.com/MichaelMachad0 |
 | LinkedIn | https://www.linkedin.com/in/michael-machado-qa/ |
-| Email | contato@forge.michaelmachado.dev |
+| Direct contact | Available through the site |
 
 ---
 
@@ -160,7 +160,7 @@ npm run build
 
 ```bash
 # .env.local
-NEXT_PUBLIC_SITE_URL=https://forge.michaelmachado.dev
+NEXT_PUBLIC_SITE_URL=https://michaelmachado.dev.br
 ```
 
 ---

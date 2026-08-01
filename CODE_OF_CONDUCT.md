@@ -30,7 +30,7 @@ Unacceptable behavior includes:
 
 ## Enforcement
 
-Report incidents to `contato@forge.michaelmachado.dev`.
+Report incidents through the official public channels listed on the FORGE site.
 
 The maintainer will review and may take any action deemed appropriate, including warning, temporary restriction, or permanent ban from project spaces.
 

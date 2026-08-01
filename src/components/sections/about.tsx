@@ -1,46 +1,45 @@
 import { Container } from "@/components/ui/container";
-import { FadeIn } from "@/components/ui/fade-in";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { focusAreas } from "@/data/focus-areas";
+
+const disciplines = [
+  ["01", "Produto SaaS", "Escopo claro, base técnica sustentável e decisões guiadas pelo uso real."],
+  ["02", "Arquitetura", "Fronteiras explícitas, baixo acoplamento e evolução sem complexidade ornamental."],
+  ["03", "IA e automação", "IA aplicada onde reduz trabalho, melhora contexto ou amplia capacidade operacional."],
+  ["04", "Qualidade", "Acessibilidade, segurança, observabilidade e testes tratados como parte do produto."],
+] as const;
 
 export function About() {
   return (
-    <section id="sobre" className="relative py-24 sm:py-32">
-      <Container className="flex flex-col gap-14">
-        <FadeIn>
-          <SectionHeading
-            eyebrow="Sobre"
-            title="Engenharia com propósito, do código à decisão de produto"
-            description="Atuo na construção de produtos SaaS e soluções de IA de ponta a ponta — da arquitetura ao deploy — priorizando qualidade, escalabilidade e uma experiência de uso consistente."
-          />
-        </FadeIn>
+    <section id="sobre" className="section-rule py-24 sm:py-32">
+      <Container>
+        <div className="grid gap-14 lg:grid-cols-[18rem_1fr] lg:gap-24">
+          <div>
+            <p className="eyebrow">Sobre / Michael Machado</p>
+            <p className="mt-6 text-sm leading-6 text-muted">
+              Fundador e engenheiro Full Stack trabalhando na interseção entre software, operação e produto.
+            </p>
+          </div>
 
-        <FadeIn delay={0.1}>
-          <p className="max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-            Trabalho na interseção entre engenharia e produto, combinando arquitetura
-            sólida, automação inteligente e atenção obsessiva a detalhes de frontend e
-            backend. Meu foco é entregar software que funciona bem hoje e continua
-            fácil de evoluir amanhã.
-          </p>
-        </FadeIn>
+          <div>
+            <h2 className="max-w-4xl text-balance text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-5xl">
+              Engenharia é transformar decisões complexas em produtos claros, confiáveis e possíveis de manter.
+            </h2>
+            <p className="mt-8 max-w-3xl text-lg leading-8 text-muted">
+              FORGE reúne produtos, referências públicas e estudos que mostram como penso sistemas SaaS:
+              começando pelo problema, protegendo o que é privado e construindo uma base que possa evoluir.
+            </p>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {focusAreas.map((area, index) => (
-            <FadeIn key={area.label} delay={0.05 * index}>
-              <div className="group h-full rounded-2xl border border-border-subtle bg-surface/60 p-6 transition-colors duration-300 hover:border-border-strong hover:bg-surface">
-                <area.icon
-                  size={22}
-                  className="text-accent transition-transform duration-300 group-hover:scale-110"
-                />
-                <h3 className="mt-4 text-sm font-semibold text-foreground">
-                  {area.label}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {area.description}
-                </p>
-              </div>
-            </FadeIn>
-          ))}
+            <div className="mt-16 grid gap-x-10 sm:grid-cols-2">
+              {disciplines.map(([number, title, description]) => (
+                <article key={number} className="border-t border-border-subtle py-6">
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-mono text-xs text-accent">{number}</span>
+                    <h3 className="text-base font-semibold">{title}</h3>
+                  </div>
+                  <p className="mt-3 pl-9 text-sm leading-6 text-muted">{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </section>
