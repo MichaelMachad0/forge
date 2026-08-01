@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/brand/og.png"],
   },
-  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
