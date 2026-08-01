@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/social-icons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/icons/social-icons";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
 
@@ -15,9 +15,14 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://forge.michaelmachado.dev",
   locale: "pt-BR",
   email: "contato@forge.michaelmachado.dev",
+  whatsapp: {
+    display: "+55 71 98154-4757",
+    href: "https://wa.me/5571981544757",
+  },
   links: {
     github: "https://github.com/MichaelMachad0",
     linkedin: "https://www.linkedin.com/in/michael-machado-qa/",
+    whatsapp: "https://wa.me/5571981544757",
   },
 } as const;
 
@@ -36,5 +41,6 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: siteConfig.links.github, icon: GithubIcon },
   { label: "LinkedIn", href: siteConfig.links.linkedin, icon: LinkedinIcon },
+  { label: "WhatsApp", href: siteConfig.links.whatsapp, icon: WhatsappIcon },
   { label: "Email", href: `mailto:${siteConfig.email}`, icon: Mail },
 ];

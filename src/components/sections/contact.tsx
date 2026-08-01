@@ -4,10 +4,16 @@ import { Container } from "@/components/ui/container";
 import { FadeIn } from "@/components/ui/fade-in";
 import { GlowBackground } from "@/components/ui/glow-background";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/social-icons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/icons/social-icons";
 import { siteConfig } from "@/lib/site-config";
 
 const channels = [
+  {
+    label: "WhatsApp",
+    value: siteConfig.whatsapp.display,
+    href: siteConfig.whatsapp.href,
+    icon: WhatsappIcon,
+  },
   {
     label: "Email",
     value: siteConfig.email,
@@ -43,7 +49,7 @@ export function Contact() {
           />
         </FadeIn>
 
-        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
           {channels.map((channel, index) => (
             <FadeIn key={channel.label} delay={0.08 * index}>
               <a
