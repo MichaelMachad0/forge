@@ -10,7 +10,13 @@ const origin = `http://127.0.0.1:${port}`;
 const nextCli = path.join(process.cwd(), "node_modules", "next", "dist", "bin", "next");
 const server = spawn(process.execPath, [nextCli, "start", "-p", String(port)], {
   cwd: process.cwd(),
-  env: { ...process.env, PORT: String(port) },
+  env: {
+    ...process.env,
+    PORT: String(port),
+    RESEND_API_KEY: "",
+    CONTACT_TO_EMAIL: "",
+    CONTACT_FROM_EMAIL: "",
+  },
   stdio: ["ignore", "pipe", "pipe"],
 });
 
@@ -59,12 +65,60 @@ try {
   assert.match(homeHtml, /Produtos sólidos/);
   assert.match(homeHtml, /Michael Machado/);
   assert.match(homeHtml, /application\/ld\+json/);
+  assert.match(homeHtml, /name="message"/);
+  assert.match(homeHtml, /Enviar mensagem/);
   assert.equal(home.headers.get("x-content-type-options"), "nosniff");
   assert.equal(home.headers.get("x-powered-by"), null);
 
   const privacy = await get("/privacidade");
   assert.equal(privacy.status, 200);
-  assert.match(await privacy.text(), /Privacidade por padrão/);
+  const privacyHtml = await privacy.text();
+  assert.match(privacyHtml, /Privacidade por padrão/);
+  assert.match(privacyHtml, /processado pelo Resend/);
+
+  const invalidContact = await fetch(`${origin}/api/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: origin },
+    body: JSON.stringify({ name: "A" }),
+  });
+  assert.equal(invalidContact.status, 400);
+
+  const crossOriginContact = await fetch(`${origin}/api/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: "https://example.com" },
+    body: JSON.stringify({}),
+  });
+  assert.equal(crossOriginContact.status, 403);
+
+  const spamContact = await fetch(`${origin}/api/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: origin },
+    body: JSON.stringify({
+      name: "Bot de teste",
+      email: "bot@example.com",
+      company: "",
+      message: "Mensagem válida que deve cair silenciosamente no honeypot.",
+      consent: true,
+      website: "https://spam.example.com",
+      startedAt: Date.now(),
+    }),
+  });
+  assert.equal(spamContact.status, 200);
+
+  const unconfiguredContact = await fetch(`${origin}/api/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: origin },
+    body: JSON.stringify({
+      name: "Contato de teste",
+      email: "contato@example.com",
+      company: "",
+      message: "Mensagem válida sem envio externo durante o teste automatizado.",
+      consent: true,
+      website: "",
+      startedAt: Date.now() - 2_000,
+    }),
+  });
+  assert.equal(unconfiguredContact.status, 503);
 
   const terms = await get("/termos");
   assert.equal(terms.status, 200);
