@@ -12,7 +12,15 @@ export default function PrivacyPage() {
     <LegalPage eyebrow="Política" title="Privacidade por padrão, sem rastreamento desnecessário.">
       <section>
         <h2>Dados coletados</h2>
-        <p className="mt-3">Este site não usa cookies, analytics, contas de usuário ou formulários próprios nesta versão. A navegação pública não exige fornecer dados pessoais.</p>
+        <p className="mt-3">A navegação pública não exige conta, cookies ou analytics. Se você usar o formulário de contato, serão coletados nome, e-mail, empresa opcional e a mensagem enviada.</p>
+      </section>
+      <section>
+        <h2>Finalidade e tratamento</h2>
+        <p className="mt-3">Os dados do formulário são usados somente para analisar e responder à solicitação. O envio é processado pelo Resend como provedor de e-mail e não é usado para listas de marketing.</p>
+      </section>
+      <section>
+        <h2>Proteção e retenção</h2>
+        <p className="mt-3">O formulário usa validação, controles antispam e conexão segura. As mensagens são mantidas apenas pelo tempo necessário para conduzir a conversa e cumprir obrigações aplicáveis.</p>
       </section>
       <section>
         <h2>Links externos</h2>
@@ -20,7 +28,7 @@ export default function PrivacyPage() {
       </section>
       <section>
         <h2>Contato</h2>
-        <p className="mt-3">Ao iniciar uma conversa por um canal externo, você escolhe quais informações compartilhar diretamente com a respectiva plataforma.</p>
+        <p className="mt-3">Você pode solicitar acesso, correção ou exclusão dos dados respondendo à conversa iniciada. Em canais externos, o tratamento também segue as políticas da respectiva plataforma.</p>
       </section>
       <p>Última revisão: 1 de agosto de 2026.</p>
     </LegalPage>
