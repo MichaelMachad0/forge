@@ -75,8 +75,14 @@ export function Contact() {
         </div>
 
         <FadeIn delay={0.24}>
-          <Button href={`mailto:${siteConfig.email}`} size="lg" icon={<ArrowUpRight size={18} />}>
-            Enviar uma mensagem
+          <Button
+            href={siteConfig.whatsapp.href}
+            target="_blank"
+            rel="noreferrer"
+            size="lg"
+            icon={<ArrowUpRight size={18} />}
+          >
+            Chamar no WhatsApp
           </Button>
         </FadeIn>
       </Container>
