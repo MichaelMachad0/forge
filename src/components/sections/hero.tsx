@@ -1,15 +1,18 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/site-config";
 
 const capabilities = ["SaaS", "Arquitetura", "IA aplicada", "Automação"];
+const portraitUrl =
+  "https://res.cloudinary.com/dvo4otwrg/image/upload/v1785636189/file_00000000c510820ea13b1959d0697aa6_o79lzo.jpg";
 
 export function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden pt-28 sm:pt-36 lg:pt-44">
       <Container>
-        <div className="grid min-h-[calc(100svh-9rem)] grid-cols-1 gap-16 pb-20 lg:grid-cols-[1fr_19rem] lg:gap-24 lg:pb-28">
+        <div className="grid min-h-[calc(100svh-9rem)] grid-cols-1 gap-16 pb-20 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 lg:pb-28 xl:grid-cols-[minmax(0,1fr)_22rem] xl:gap-20">
           <div className="flex flex-col justify-between">
             <div>
               <div className="mb-12 flex items-center gap-4">
@@ -54,22 +57,46 @@ export function Hero() {
             </div>
           </div>
 
-          <aside className="flex flex-col justify-end border-l border-border-subtle pl-7 lg:pb-1">
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
-              Áreas de atuação
-            </p>
-            <ol className="mt-6">
-              {capabilities.map((capability, index) => (
-                <li
-                  key={capability}
-                  className="flex items-center justify-between border-t border-border-subtle py-4 text-sm"
-                >
-                  <span>{capability}</span>
-                  <span className="font-mono text-[0.66rem] text-muted">0{index + 1}</span>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-8 text-sm leading-6 text-muted">{siteConfig.slogan}</p>
+          <aside className="border-l border-border-subtle pl-5 sm:pl-7 lg:pb-1">
+            <figure>
+              <div className="relative aspect-[4/5] overflow-hidden border border-border-subtle bg-surface">
+                <Image
+                  src={portraitUrl}
+                  alt="Retrato de Michael Machado"
+                  width={1022}
+                  height={1536}
+                  sizes="(min-width: 1280px) 22rem, (min-width: 1024px) 20rem, (min-width: 640px) 28rem, calc(100vw - 4.25rem)"
+                  preload
+                  className="h-full w-full object-cover object-[50%_22%]"
+                />
+                <span
+                  className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
+                  aria-hidden
+                />
+              </div>
+              <figcaption className="mt-3 flex items-center justify-between gap-4 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
+                <span>Michael Machado</span>
+                <span>Founder / Engineer</span>
+              </figcaption>
+            </figure>
+
+            <div className="mt-12">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
+                Áreas de atuação
+              </p>
+              <ol className="mt-6">
+                {capabilities.map((capability, index) => (
+                  <li
+                    key={capability}
+                    className="flex items-center justify-between border-t border-border-subtle py-4 text-sm"
+                  >
+                    <span>{capability}</span>
+                    <span className="font-mono text-[0.66rem] text-muted">0{index + 1}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-8 text-sm leading-6 text-muted">{siteConfig.slogan}</p>
+            </div>
           </aside>
         </div>
       </Container>
