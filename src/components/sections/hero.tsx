@@ -74,9 +74,27 @@ export function Hero() {
                   aria-hidden
                 />
               </div>
-              <figcaption className="mt-3 flex items-center justify-between gap-4 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
-                <span>Michael Machado</span>
-                <span>Founder / Engineer</span>
+              <figcaption className="mt-3">
+                <div className="flex items-center justify-between gap-4 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
+                  <span>Michael Machado</span>
+                  <span>Founder / Engineer</span>
+                </div>
+                <div className="mt-7 space-y-4 text-sm leading-6 text-muted">
+                  <p>
+                    Sou Michael Machado, fundador e desenvolvedor Full Stack, apaixonado por transformar
+                    ideias em produtos digitais escaláveis.
+                  </p>
+                  <p>
+                    Especializado em desenvolvimento de aplicações SaaS, arquitetura de software,
+                    inteligência artificial e automação, meu foco é criar soluções que unem tecnologia,
+                    simplicidade e impacto real nos negócios.
+                  </p>
+                  <p>
+                    Acredito que bons produtos nascem da combinação entre engenharia de qualidade,
+                    experiência do usuário e aprendizado contínuo. É essa visão que guia cada projeto que
+                    desenvolvo.
+                  </p>
+                </div>
               </figcaption>
             </figure>
 
