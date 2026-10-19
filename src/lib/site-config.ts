@@ -6,17 +6,24 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
 
 export const siteConfig = {
   name: "FORGE",
-  title: "Software Engineering",
-  slogan: "Building software that scales.",
+  title: "Engenharia de software",
+  slogan: "Software que evolui com o negócio.",
   tagline:
-    "Produtos SaaS, automações com IA e sistemas preparados para evoluir — da arquitetura à experiência.",
+    "Disponível para projetos freelance, consultoria em SaaS e IA, e posições full stack.",
   description:
-    "Portfólio de Michael Machado, fundador e engenheiro Full Stack especializado em SaaS, arquitetura de software, IA e automação.",
+    "Michael Machado, fundador da GIA e engenheiro full stack. Freelance, consultoria em SaaS e IA, e posições full stack. A GIA está em produção com clientes pagantes.",
   url: siteUrl,
   locale: "pt-BR",
   person: {
     name: "Michael Machado",
-    role: "Founder & Full Stack Software Engineer",
+    role: "Fundador da GIA, engenheiro full stack",
+  },
+  email: {
+    display: "admin@usegia.com.br",
+    href: "mailto:admin@usegia.com.br",
+  },
+  gia: {
+    url: "https://usegia.com.br",
   },
   whatsapp: {
     display: "+55 71 98154-4757",

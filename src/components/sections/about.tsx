@@ -15,7 +15,7 @@ export function About() {
           <div>
             <p className="eyebrow">Sobre / Michael Machado</p>
             <p className="mt-6 text-sm leading-6 text-muted">
-              Fundador e engenheiro Full Stack trabalhando na interseção entre software, operação e produto.
+              Fundador da GIA e engenheiro full stack, entre produto, operação e engenharia.
             </p>
           </div>
 
@@ -24,8 +24,9 @@ export function About() {
               Engenharia é transformar decisões complexas em produtos claros, confiáveis e possíveis de manter.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-muted">
-              FORGE reúne produtos, referências públicas e estudos que mostram como penso sistemas SaaS:
-              começando pelo problema, protegendo o que é privado e construindo uma base que possa evoluir.
+              A GIA está em produção com clientes pagantes. O FORGE reúne esse trabalho, as referências
+              públicas e os estudos que mostram como penso sistemas SaaS: começando pelo problema,
+              protegendo o que é privado e construindo uma base que possa evoluir.
             </p>
 
             <div className="mt-16 grid gap-x-10 sm:grid-cols-2">

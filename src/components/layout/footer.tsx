@@ -4,7 +4,7 @@ import { navItems, siteConfig, socialLinks } from "@/lib/site-config";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-subtle py-12">
+    <footer className="border-t border-border-subtle py-12 max-md:pb-28">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
@@ -41,6 +41,9 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-border-subtle pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.person.name}. Todos os direitos reservados.</p>
+          <a href={siteConfig.email.href} className="min-h-11 content-center hover:text-foreground">
+            {siteConfig.email.display}
+          </a>
           <div className="flex gap-5">
             <Link href="/privacidade" className="min-h-11 content-center hover:text-foreground">Privacidade</Link>
             <Link href="/termos" className="min-h-11 content-center hover:text-foreground">Termos</Link>

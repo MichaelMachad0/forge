@@ -10,93 +10,91 @@ const portraitUrl =
 
 export function Hero() {
   return (
-    <section id="hero" className="relative overflow-hidden pt-28 sm:pt-36 lg:pt-44">
+    <section id="hero" className="relative overflow-hidden pt-24 sm:pt-32 lg:pt-40">
       <Container>
-        <div className="grid min-h-[calc(100svh-9rem)] grid-cols-1 gap-16 pb-20 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 lg:pb-28 xl:grid-cols-[minmax(0,1fr)_22rem] xl:gap-20">
-          <div className="flex flex-col justify-between">
-            <div>
-              <div className="mb-12 flex items-center gap-4">
-                <span className="eyebrow">Software engineering portfolio</span>
-                <span className="h-px w-16 bg-border-strong" aria-hidden />
-              </div>
-
-              <h1 className="display-type max-w-5xl text-balance">
-                Produtos sólidos.
-                <span className="block text-muted">Sistemas que evoluem.</span>
-              </h1>
-
-              <p className="mt-10 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-                {siteConfig.tagline}
-              </p>
-
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <Button href="#projetos" size="lg" icon={<ArrowDownRight size={18} />}>
-                  Explorar trabalho
-                </Button>
-                <Button
-                  href={siteConfig.whatsapp.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  size="lg"
-                  variant="secondary"
-                  icon={<ArrowUpRight size={18} />}
-                >
-                  Conversar sobre um projeto
-                </Button>
-              </div>
+        <div className="grid grid-cols-1 items-start gap-8 pb-16 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-x-16 lg:gap-y-12 lg:pb-28 xl:grid-cols-[minmax(0,1fr)_22rem] xl:gap-x-20">
+          <div className="order-2 lg:order-none lg:col-start-1 lg:row-start-1 lg:flex lg:h-full lg:flex-col">
+            <div className="mb-8 flex items-center gap-4 lg:mb-12">
+              <span className="eyebrow">Portfólio de engenharia de software</span>
+              <span className="h-px w-16 bg-border-strong" aria-hidden />
             </div>
 
-            <div className="mt-20 flex items-end justify-between border-t border-border-subtle pt-6">
-              <div>
-                <p className="text-sm font-semibold text-foreground">{siteConfig.person.name}</p>
-                <p className="mt-1 text-sm text-muted">{siteConfig.person.role}</p>
-              </div>
-              <p className="hidden font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted sm:block">
-                Disponível para colaborações
-              </p>
+            <h1 className="display-type max-w-5xl">
+              Michael
+              <span className="block">Machado</span>
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-xl font-medium leading-snug tracking-[-0.03em] text-foreground sm:text-2xl">
+              {siteConfig.person.role}.
+            </p>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+              {siteConfig.tagline} A{" "}
+              <a
+                href={siteConfig.gia.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-foreground underline decoration-border-strong underline-offset-4 hover:text-accent"
+              >
+                GIA
+              </a>
+              , SaaS modular que fundei, está em produção com clientes pagantes.
+            </p>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Button
+                href={siteConfig.whatsapp.href}
+                target="_blank"
+                rel="noreferrer"
+                size="lg"
+                icon={<ArrowUpRight size={18} />}
+              >
+                Conversar sobre um projeto
+              </Button>
+              <Button href="#servicos" size="lg" variant="secondary" icon={<ArrowDownRight size={18} />}>
+                Como posso ajudar
+              </Button>
             </div>
+
+            <p className="mt-auto hidden pt-16 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted lg:block">
+              Freelance · Consultoria · Posições full stack
+            </p>
           </div>
 
-          <aside className="border-l border-border-subtle pl-5 sm:pl-7 lg:pb-1">
-            <figure>
-              <div className="relative aspect-[4/5] overflow-hidden border border-border-subtle bg-surface">
-                <Image
-                  src={portraitUrl}
-                  alt="Retrato de Michael Machado"
-                  width={1022}
-                  height={1536}
-                  sizes="(min-width: 1280px) 22rem, (min-width: 1024px) 20rem, (min-width: 640px) 28rem, calc(100vw - 4.25rem)"
-                  preload
-                  className="h-full w-full object-cover object-[50%_22%]"
-                />
-                <span
-                  className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
-                  aria-hidden
-                />
+          <figure className="order-1 lg:order-none lg:col-start-2 lg:row-start-1">
+            <div className="relative h-[8.75rem] w-28 overflow-hidden border border-border-subtle bg-surface lg:aspect-[4/5] lg:h-auto lg:w-full">
+              <Image
+                src={portraitUrl}
+                alt="Retrato de Michael Machado"
+                fill
+                sizes="(min-width: 1280px) 22rem, (min-width: 1024px) 20rem, 7rem"
+                preload
+                className="object-cover object-[50%_22%]"
+              />
+              <span
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
+                aria-hidden
+              />
+            </div>
+            <figcaption className="mt-3 hidden lg:block">
+              <div className="flex items-center justify-between gap-4 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
+                <span>{siteConfig.person.name}</span>
+                <span>Fundador / Engenheiro</span>
               </div>
-              <figcaption className="mt-3">
-                <div className="flex items-center justify-between gap-4 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted">
-                  <span>Michael Machado</span>
-                  <span>Founder / Engineer</span>
-                </div>
-                <div className="mt-7 space-y-4 text-sm leading-6 text-muted">
-                  <p>
-                    Sou Michael Machado, fundador e desenvolvedor Full Stack, apaixonado por transformar
-                    ideias em produtos digitais escaláveis.
-                  </p>
-                  <p>
-                    Especializado em desenvolvimento de aplicações SaaS, arquitetura de software,
-                    inteligência artificial e automação, meu foco é criar soluções que unem tecnologia,
-                    simplicidade e impacto real nos negócios.
-                  </p>
-                  <p>
-                    Acredito que bons produtos nascem da combinação entre engenharia de qualidade,
-                    experiência do usuário e aprendizado contínuo. É essa visão que guia cada projeto que
-                    desenvolvo.
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+            </figcaption>
+          </figure>
+
+          <div className="order-3 border-l border-border-subtle pl-5 sm:pl-7 lg:order-none lg:col-start-2 lg:row-start-2 lg:border-l-0 lg:pl-0">
+            <div className="space-y-4 text-sm leading-6 text-muted">
+              <p>
+                Sou Michael Machado, fundador da GIA e engenheiro full stack. O produto está no ar, com
+                clientes pagantes, e o código de produção permanece privado.
+              </p>
+              <p>
+                Trabalho com SaaS, arquitetura de software, inteligência artificial e automação — do
+                problema de negócio à implementação.
+              </p>
+            </div>
 
             <div className="mt-12">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
@@ -115,7 +113,7 @@ export function Hero() {
               </ol>
               <p className="mt-8 text-sm leading-6 text-muted">{siteConfig.slogan}</p>
             </div>
-          </aside>
+          </div>
         </div>
       </Container>
     </section>

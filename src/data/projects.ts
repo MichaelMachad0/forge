@@ -4,16 +4,29 @@ export const projects: Project[] = [
   {
     slug: "gia",
     name: "GIA",
-    kicker: "Produto / IA aplicada",
+    kicker: "Produto / SaaS modular",
     description:
-      "Ecossistema de gestão inteligente e automatizada para organizar operações, conectar módulos e incorporar IA com responsabilidade.",
+      "SaaS modular em produção, com clientes pagantes, para organizar operações, conectar módulos e incorporar IA com responsabilidade.",
     tags: ["SaaS", "IA", "Automação", "Arquitetura modular"],
-    status: "Em desenvolvimento",
+    status: "Em produção · clientes pagantes",
     href: "https://github.com/MichaelMachad0/gia-showcase",
+    website: {
+      href: "https://usegia.com.br",
+      label: "Visitar o GIA",
+    },
+    // TODO(metrics): preencher somente com números verificáveis.
+    // Vagas previstas — não usar estimativa:
+    // - clientes pagantes ativos
+    // - tempo em produção
+    // - módulos em uso pelos clientes
+    // Enquanto o array estiver vazio, a página do case não exibe métricas.
+    metrics: [],
     featured: true,
     caseStudy: {
-      summary: "Uma narrativa pública de produto e engenharia para uma plataforma SaaS modular, multiempresa e orientada por inteligência artificial.",
-      challenge: "Operações, finanças e comunicação costumam crescer em ferramentas desconectadas. O desafio do GIA é criar uma superfície comum sem transformar cada vertical em um sistema isolado ou expor detalhes sensíveis da operação real.",
+      summary:
+        "SaaS modular em produção, com clientes pagantes, para organizar operações, conectar módulos e incorporar inteligência artificial com responsabilidade.",
+      challenge:
+        "Operações, finanças e comunicação costumam crescer em ferramentas desconectadas. A GIA responde a isso com uma superfície comum, já em produção, sem transformar cada vertical em um sistema isolado e sem expor detalhes sensíveis da operação real.",
       approach: [
         "Organizar o ecossistema por módulos de domínio que possam evoluir de forma independente.",
         "Tratar identidade, autorização e contexto da empresa como capacidades compartilhadas.",
@@ -26,12 +39,14 @@ export const projects: Project[] = [
         "Auditoria e observabilidade atravessando decisões de acesso e operações.",
       ],
       evidence: [
+        "Produto em produção, com clientes pagantes, acessível em usegia.com.br.",
         "Documentação pública de visão, arquitetura, multi-tenancy e segurança.",
         "Mapa explícito de produtos do ecossistema, incluindo SILOG e módulos financeiros.",
-        "Roadmap macro sem datas comerciais ou compromissos não verificáveis.",
       ],
-      outcome: "O showcase torna a intenção do produto e sua postura de engenharia compreensíveis sem publicar código proprietário, dados de clientes, schemas ou topologia operacional.",
-      boundary: "Este case descreve o modelo conceitual documentado publicamente. Código de produção, regras de negócio e infraestrutura permanecem privados.",
+      outcome:
+        "A GIA está em produção e atende clientes pagantes. Este case registra o modelo do produto e a postura de engenharia. Métricas quantitativas entram somente quando houver números verificáveis para compartilhar.",
+      boundary:
+        "O case descreve o produto em produção sem publicar código proprietário, dados de clientes, schemas, topologia operacional ou métricas quantitativas.",
     },
   },
   {
