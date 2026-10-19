@@ -11,7 +11,7 @@ export const siteConfig = {
   tagline:
     "Disponível para projetos freelance, consultoria em SaaS e IA, e posições full stack.",
   description:
-    "Michael Machado, fundador da GIA e engenheiro full stack. Freelance, consultoria em SaaS e IA, e posições full stack. A GIA está em produção com clientes pagantes.",
+    "Michael Machado, fundador da GIA e engenheiro full stack. Freelance, consultoria em SaaS e IA, e posições full stack. A GIA Escolar está em produção no primeiro cliente.",
   url: siteUrl,
   locale: "pt-BR",
   person: {
@@ -23,7 +23,7 @@ export const siteConfig = {
     href: "mailto:admin@usegia.com.br",
   },
   gia: {
-    url: "https://usegia.com.br",
+    url: "https://www.usegia.com.br/",
   },
   whatsapp: {
     display: "+55 71 98154-4757",

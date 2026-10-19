@@ -4,49 +4,62 @@ export const projects: Project[] = [
   {
     slug: "gia",
     name: "GIA",
-    kicker: "Produto / SaaS modular",
+    kicker: "GIA Escolar / Gestão escolar",
     description:
-      "SaaS modular em produção, com clientes pagantes, para organizar operações, conectar módulos e incorporar IA com responsabilidade.",
-    tags: ["SaaS", "IA", "Automação", "Arquitetura modular"],
-    status: "Em produção · clientes pagantes",
+      "Sistema de gestão escolar em produção no cliente fundador: uma escola particular em Camaçari-BA. Estágio inicial, com um único cliente.",
+    tags: ["Gestão escolar", "SaaS", "Implantação", "Suporte"],
+    status: "Em produção · 1º cliente",
     href: "https://github.com/MichaelMachad0/gia-showcase",
     website: {
-      href: "https://usegia.com.br",
-      label: "Visitar o GIA",
+      href: "https://www.usegia.com.br/",
+      label: "Visitar site do GIA",
     },
-    // TODO(metrics): preencher somente com números verificáveis.
-    // Vagas previstas — não usar estimativa:
-    // - clientes pagantes ativos
-    // - tempo em produção
-    // - módulos em uso pelos clientes
-    // Enquanto o array estiver vazio, a página do case não exibe métricas.
-    metrics: [],
+    metricsSummary: "1º cliente em produção · 68 alunos",
+    metrics: [
+      { value: "1", label: "Cliente fundador em produção" },
+      { value: "68", label: "Alunos atendidos" },
+      { value: "9", label: "Funcionários usando o sistema" },
+    ],
+    company: {
+      form: "Empresa Simples de Inovação (Inova Simples)",
+      cnpj: "67.953.300/0001-66",
+      opened: "julho de 2026",
+      city: "Camaçari-BA",
+    },
     featured: true,
     caseStudy: {
       summary:
-        "SaaS modular em produção, com clientes pagantes, para organizar operações, conectar módulos e incorporar inteligência artificial com responsabilidade.",
+        "GIA Escolar, sistema de gestão escolar, em produção no cliente fundador: uma escola particular em Camaçari-BA. 68 alunos atendidos e 9 funcionários usando. Estágio inicial, um único cliente.",
       challenge:
-        "Operações, finanças e comunicação costumam crescer em ferramentas desconectadas. A GIA responde a isso com uma superfície comum, já em produção, sem transformar cada vertical em um sistema isolado e sem expor detalhes sensíveis da operação real.",
+        "Uma escola particular em Camaçari-BA precisava conduzir a rotina escolar sem um sistema de gestão próprio. Planilhas e ferramentas soltas não sustentam alunos, equipe e a operação do dia a dia.",
       approach: [
-        "Organizar o ecossistema por módulos de domínio que possam evoluir de forma independente.",
-        "Tratar identidade, autorização e contexto da empresa como capacidades compartilhadas.",
-        "Reservar IA e automação para trabalho repetitivo ou analítico, com auditabilidade.",
+        "Implantar e configurar a GIA Escolar para a rotina dessa escola.",
+        "Hospedar o sistema em nuvem e cuidar das atualizações e da manutenção corretiva e evolutiva.",
+        "Oferecer suporte técnico remoto para os funcionários que usam o sistema.",
       ],
       architecture: [
-        "Aplicação web como superfície unificada do produto.",
-        "Autenticação e autorização antes do acesso aos módulos.",
-        "Serviços de aplicação entre os domínios e as fronteiras de persistência.",
-        "Auditoria e observabilidade atravessando decisões de acesso e operações.",
+        "Aplicação web como superfície do sistema de gestão escolar.",
+        "Configuração feita na implantação, antes do uso pela equipe da escola.",
+        "Hospedagem em nuvem sob responsabilidade da GIA.",
+        "Manutenção e suporte remoto como parte contínua da operação.",
       ],
       evidence: [
-        "Produto em produção, com clientes pagantes, acessível em usegia.com.br.",
-        "Documentação pública de visão, arquitetura, multi-tenancy e segurança.",
-        "Mapa explícito de produtos do ecossistema, incluindo SILOG e módulos financeiros.",
+        "GIA Escolar em produção no cliente fundador, uma escola particular em Camaçari-BA.",
+        "68 alunos atendidos e 9 funcionários usando o sistema.",
+        "A GIA responde por implantação, configuração, hospedagem em nuvem, manutenção corretiva e evolutiva, atualizações e suporte técnico remoto.",
       ],
       outcome:
-        "A GIA está em produção e atende clientes pagantes. Este case registra o modelo do produto e a postura de engenharia. Métricas quantitativas entram somente quando houver números verificáveis para compartilhar.",
+        "A GIA Escolar opera em produção para um único cliente fundador. Os números publicados — 68 alunos e 9 funcionários — referem-se só a essa escola. O produto está em estágio inicial.",
       boundary:
-        "O case descreve o produto em produção sem publicar código proprietário, dados de clientes, schemas, topologia operacional ou métricas quantitativas.",
+        "Este case não publica o nome da escola, preços, dados de alunos, nomes de pessoas, CPF ou contatos. O código de produção permanece privado. Os números não representam uma base maior de clientes.",
+      story: {
+        problem:
+          "Uma escola particular em Camaçari-BA precisava organizar a gestão escolar sem um sistema próprio. A rotina dependia de controles soltos, difíceis de manter entre alunos e equipe.",
+        solution:
+          "A GIA Escolar é o sistema de gestão escolar da GIA. A GIA faz a implantação, a configuração, a hospedagem em nuvem, a manutenção corretiva e evolutiva, as atualizações e o suporte técnico remoto.",
+        status:
+          "O sistema está em produção no cliente fundador — uma escola particular em Camaçari-BA. São 68 alunos atendidos e 9 funcionários usando. É um único cliente, em estágio inicial.",
+      },
     },
   },
   {

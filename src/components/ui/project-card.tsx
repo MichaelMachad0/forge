@@ -36,7 +36,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border-subtle pt-5">
-        <span className="text-xs font-medium text-foreground">{project.status}</span>
+        <span className="text-xs font-medium text-foreground">
+          {project.metricsSummary ?? project.status}
+        </span>
         <span className="flex flex-wrap items-center gap-x-5 gap-y-2">
           {project.website ? (
             <a
@@ -46,7 +48,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               aria-label={`${project.website.label} (abre em nova aba)`}
               className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-foreground hover:text-accent"
             >
-              {project.website.href.replace(/^https:\/\//, "")}
+              {project.website.href.replace(/^https:\/\//, "").replace(/\/$/, "")}
               <ArrowUpRight size={16} aria-hidden />
             </a>
           ) : null}

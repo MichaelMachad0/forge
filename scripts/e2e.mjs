@@ -67,8 +67,10 @@ try {
   assert.match(homeHtml, /Como posso ajudar/);
   assert.match(homeHtml, /admin@usegia\.com\.br/);
   assert.match(homeHtml, /https:\/\/wa\.me\/5571981544757/);
-  assert.match(homeHtml, /Em produção · clientes pagantes/);
-  assert.match(homeHtml, /https:\/\/usegia\.com\.br/);
+  assert.match(homeHtml, /1º cliente em produção · 68 alunos/);
+  assert.match(homeHtml, /https:\/\/www\.usegia\.com\.br\//);
+  assert.doesNotMatch(homeHtml, /https:\/\/(?!www\.)usegia\.com\.br/);
+  assert.doesNotMatch(homeHtml, /clientes pagantes/);
   assert.doesNotMatch(homeHtml, /Software engineering portfolio/);
   assert.doesNotMatch(homeHtml, /Building software that scales/);
   assert.doesNotMatch(homeHtml, /Founder & Full Stack/);
@@ -163,7 +165,7 @@ try {
   assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br\/projetos\/gia/);
 
   const cases = [
-    ["gia", "SaaS modular em produção, com clientes pagantes"],
+    ["gia", "GIA Escolar, sistema de gestão escolar"],
     ["forge", "A superfície profissional"],
     ["saas-architecture", "Uma referência pública"],
     ["ai-automation-examples", "Um laboratório público"],
@@ -176,10 +178,16 @@ try {
     assert.match(projectCaseHtml, new RegExp(excerpt));
     assert.match(projectCaseHtml, /\/brand\/cases-og\.png/);
     if (slug === "gia") {
-      assert.match(projectCaseHtml, /https:\/\/usegia\.com\.br/);
-      assert.match(projectCaseHtml, /Em produção · clientes pagantes/);
+      assert.match(projectCaseHtml, /https:\/\/www\.usegia\.com\.br\//);
+      assert.match(projectCaseHtml, /Visitar site do GIA/);
+      assert.match(projectCaseHtml, /Problema, solução e situação/);
+      assert.match(projectCaseHtml, /68 alunos atendidos/);
+      assert.match(projectCaseHtml, /9 funcionários/);
+      assert.match(projectCaseHtml, /67\.953\.300\/0001-66/);
+      assert.match(projectCaseHtml, /escola particular em Camaçari-BA/);
+      assert.doesNotMatch(projectCaseHtml, /https:\/\/(?!www\.)usegia\.com\.br/);
+      assert.doesNotMatch(projectCaseHtml, /clientes pagantes/);
       assert.doesNotMatch(projectCaseHtml, /Em desenvolvimento/);
-      assert.doesNotMatch(projectCaseHtml, /Métricas verificadas/);
     }
   }
 
