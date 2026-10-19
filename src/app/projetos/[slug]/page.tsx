@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) return {};
 
-  const title = `${project.name} — Case`;
+  const title = `${project.name} — Projeto`;
   const url = absoluteUrl(`/projetos/${project.slug}`);
 
   return {
@@ -86,6 +86,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="border-l border-border-subtle pl-6">
             <p className="font-mono text-[0.66rem] uppercase tracking-[0.16em] text-muted">Estado público</p>
             <p className="mt-3 text-sm text-foreground">{project.status}</p>
+            {project.website ? (
+              <a
+                href={project.website.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent"
+              >
+                {project.website.href.replace(/^https:\/\//, "")}
+                <ArrowUpRight size={16} aria-hidden />
+              </a>
+            ) : null}
             <div className="mt-6 flex flex-wrap gap-2">
               {project.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
             </div>
@@ -114,6 +125,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </div>
 
+        {/* TODO(metrics): esta lista só aparece quando project.metrics tiver números verificáveis. Não inserir estimativas. */}
+        {project.metrics && project.metrics.length > 0 ? (
+          <section className="grid gap-8 border-b border-border-subtle py-14 lg:grid-cols-[18rem_1fr] lg:py-20">
+            <div>
+              <span className="font-mono text-xs text-accent">05</span>
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.035em]">Métricas verificadas</h2>
+            </div>
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {project.metrics.map((metric) => (
+                <li key={metric.label} className="rounded-2xl border border-border-subtle bg-surface/50 p-6">
+                  <p className="text-3xl font-semibold tracking-[-0.04em] text-foreground">{metric.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">{metric.label}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         <section className="grid gap-8 rounded-[2rem] border border-border-subtle bg-surface p-8 sm:p-12 lg:grid-cols-[1fr_18rem] lg:items-end">
           <div>
             <p className="eyebrow">Resultado documentado</p>
@@ -125,11 +154,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.caseStudy.boundary}
             </p>
           </div>
-          {project.href && (
-            <Button href={project.href} target="_blank" rel="noreferrer" className="w-full">
-              Ver repositório <ArrowUpRight size={17} aria-hidden />
-            </Button>
-          )}
+          {project.website || project.href ? (
+            <div className="flex flex-col gap-3">
+              {project.website ? (
+                <Button href={project.website.href} target="_blank" rel="noreferrer" className="w-full">
+                  {project.website.label} <ArrowUpRight size={17} aria-hidden />
+                </Button>
+              ) : null}
+              {project.href ? (
+                <Button
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant={project.website ? "secondary" : "primary"}
+                  className="w-full"
+                >
+                  Ver repositório <ArrowUpRight size={17} aria-hidden />
+                </Button>
+              ) : null}
+            </div>
+          ) : null}
         </section>
       </Container>
     </article>

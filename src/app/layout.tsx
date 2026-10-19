@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
+import { WhatsappButton } from "@/components/layout/whatsapp-button";
 import { StructuredData } from "@/components/structured-data";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
     "inteligência artificial",
     "automação",
     "Michael Machado",
+    "GIA",
+    "freelance",
+    "consultoria",
+    "engenheiro full stack",
   ],
   authors: [{ name: siteConfig.person.name, url: siteConfig.url }],
   creator: siteConfig.person.name,
@@ -67,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Navbar />
         <main id="conteudo">{children}</main>
         <Footer />
+        <WhatsappButton />
       </body>
     </html>
   );

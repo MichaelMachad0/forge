@@ -11,14 +11,14 @@ export function Projects() {
           <div>
             <p className="eyebrow">Projetos selecionados</p>
             <p className="mt-6 max-w-xs text-sm leading-6 text-muted">
-              Produtos e referências públicas. O conteúdo descreve capacidades sem expor código comercial,
-              clientes ou infraestrutura sensível.
+              A GIA atende clientes pagantes. Os demais itens são referências públicas, sem código
+              comercial, dados de clientes ou infraestrutura sensível.
             </p>
           </div>
 
           <div>
             <h2 className="max-w-3xl text-balance text-3xl font-semibold tracking-[-0.045em] sm:text-5xl">
-              Trabalho público, contexto suficiente e nenhuma métrica inventada.
+              A GIA está em produção. O restante é raciocínio público, sem dados sensíveis.
             </h2>
 
             <div className="mt-14 grid gap-5 md:grid-cols-2">

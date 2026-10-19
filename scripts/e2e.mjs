@@ -62,8 +62,20 @@ try {
   const home = await get("/");
   const homeHtml = await home.text();
   assert.equal(home.status, 200);
-  assert.match(homeHtml, /Produtos sólidos/);
   assert.match(homeHtml, /Michael Machado/);
+  assert.match(homeHtml, /Fundador da GIA, engenheiro full stack/);
+  assert.match(homeHtml, /Como posso ajudar/);
+  assert.match(homeHtml, /admin@usegia\.com\.br/);
+  assert.match(homeHtml, /https:\/\/wa\.me\/5571981544757/);
+  assert.match(homeHtml, /Em produção · clientes pagantes/);
+  assert.match(homeHtml, /https:\/\/usegia\.com\.br/);
+  assert.doesNotMatch(homeHtml, /Software engineering portfolio/);
+  assert.doesNotMatch(homeHtml, /Building software that scales/);
+  assert.doesNotMatch(homeHtml, /Founder & Full Stack/);
+  assert.doesNotMatch(homeHtml, /Founder \/ Engineer/);
+  assert.doesNotMatch(homeHtml, /Em desenvolvimento/);
+  assert.doesNotMatch(homeHtml, /nenhuma métrica inventada/);
+  assert.doesNotMatch(homeHtml, /Baixar currículo/);
   assert.match(homeHtml, /application\/ld\+json/);
   assert.match(homeHtml, /name="message"/);
   assert.match(homeHtml, /Enviar mensagem/);
@@ -151,7 +163,7 @@ try {
   assert.match(sitemapXml, /https:\/\/michaelmachado\.dev\.br\/projetos\/gia/);
 
   const cases = [
-    ["gia", "Uma narrativa pública de produto"],
+    ["gia", "SaaS modular em produção, com clientes pagantes"],
     ["forge", "A superfície profissional"],
     ["saas-architecture", "Uma referência pública"],
     ["ai-automation-examples", "Um laboratório público"],
@@ -163,6 +175,12 @@ try {
     assert.equal(projectCase.status, 200);
     assert.match(projectCaseHtml, new RegExp(excerpt));
     assert.match(projectCaseHtml, /\/brand\/cases-og\.png/);
+    if (slug === "gia") {
+      assert.match(projectCaseHtml, /https:\/\/usegia\.com\.br/);
+      assert.match(projectCaseHtml, /Em produção · clientes pagantes/);
+      assert.doesNotMatch(projectCaseHtml, /Em desenvolvimento/);
+      assert.doesNotMatch(projectCaseHtml, /Métricas verificadas/);
+    }
   }
 
   const unknownCase = await get("/projetos/case-inexistente");
