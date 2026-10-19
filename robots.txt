@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://michaelmachad0.github.io/forge/sitemap.xml
