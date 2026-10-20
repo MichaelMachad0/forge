@@ -127,7 +127,7 @@ Official kit: [docs/brand.md](./docs/brand.md)
 | --- | --- |
 | Site | https://michaelmachado.dev.br |
 | GitHub | https://github.com/MichaelMachad0 |
-| LinkedIn | https://www.linkedin.com/in/michael-machado-qa/ |
+| LinkedIn | https://www.linkedin.com/in/michael-machado-ia |
 | Direct contact | Available through the site |
 
 ---

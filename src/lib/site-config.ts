@@ -31,7 +31,7 @@ export const siteConfig = {
   },
   links: {
     github: "https://github.com/MichaelMachad0",
-    linkedin: "https://www.linkedin.com/in/michael-machado-qa/",
+    linkedin: "https://www.linkedin.com/in/michael-machado-ia",
     whatsapp: "https://wa.me/5571981544757",
   },
 } as const;
