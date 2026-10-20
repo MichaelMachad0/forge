@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+import { CvDownloadButton } from "@/components/cv-download-button";
 import { GithubIcon, LinkedinIcon, MailIcon, WhatsappIcon } from "@/components/icons/social-icons";
 import { Container } from "@/components/ui/container";
-import { ContactForm } from "@/components/contact-form";
-import { getCvPath } from "@/lib/cv";
 import { siteConfig } from "@/lib/site-config";
 
 const channels = [
@@ -37,8 +37,6 @@ const channels = [
 ] as const;
 
 export function Contact() {
-  const cvHref = getCvPath();
-
   return (
     <section id="contato" className="section-rule py-24 sm:py-32">
       <Container>
@@ -85,16 +83,7 @@ export function Contact() {
                   </a>
                 ))}
               </div>
-              {/* TODO(cv): o link "Baixar currículo" só aparece quando getCvPath() encontra um PDF real em public/. Não criar arquivo placeholder. */}
-              {cvHref ? (
-                <a
-                  href={cvHref}
-                  download
-                  className="mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent"
-                >
-                  Baixar currículo <ArrowUpRight size={16} aria-hidden />
-                </a>
-              ) : null}
+              <CvDownloadButton className="mt-8" />
             </div>
 
             <div className="rounded-[1.5rem] border border-border-subtle bg-background/45 p-6 sm:p-8">
