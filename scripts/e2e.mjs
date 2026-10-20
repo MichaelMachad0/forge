@@ -77,7 +77,9 @@ try {
   assert.doesNotMatch(homeHtml, /Founder \/ Engineer/);
   assert.doesNotMatch(homeHtml, /Em desenvolvimento/);
   assert.doesNotMatch(homeHtml, /nenhuma métrica inventada/);
-  assert.doesNotMatch(homeHtml, /Baixar currículo/);
+  assert.match(homeHtml, /Baixar currículo/);
+  assert.match(homeHtml, /download="Michael_Machado_Curriculo_Publico\.pdf"/);
+  assert.match(homeHtml, /href="\/Michael_Machado_Curriculo_Publico\.pdf"/);
   assert.match(homeHtml, /application\/ld\+json/);
   assert.match(homeHtml, /name="message"/);
   assert.match(homeHtml, /Enviar mensagem/);
@@ -154,6 +156,12 @@ try {
     canonicalRedirect.headers.location,
     "https://michaelmachado.dev.br/privacidade?from=www",
   );
+
+  const curriculum = await get("/Michael_Machado_Curriculo_Publico.pdf");
+  assert.equal(curriculum.status, 200);
+  assert.match(curriculum.headers.get("content-type") ?? "", /pdf/);
+  const curriculumBytes = new Uint8Array(await curriculum.arrayBuffer());
+  assert.equal(String.fromCharCode(...curriculumBytes.slice(0, 5)), "%PDF-");
 
   const robots = await get("/robots.txt");
   assert.match(await robots.text(), /https:\/\/michaelmachado\.dev\.br\/sitemap\.xml/);

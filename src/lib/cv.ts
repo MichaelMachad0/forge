@@ -2,15 +2,17 @@ import fs from "node:fs";
 import path from "node:path";
 
 /**
- * TODO(cv): não há currículo versionado neste repositório.
- * Para exibir o link "Baixar currículo", coloque o arquivo real em `public/`,
- * com um destes nomes (nesta ordem):
- * - michael-machado-cv.pdf
- * - curriculo-michael-machado.pdf
- * - curriculo.pdf
- * Não gerar um PDF placeholder.
+ * Currículo público servido a partir de `public/`.
+ * O primeiro arquivo existente nesta lista vira o destino de "Baixar currículo".
  */
-const CV_FILES = ["michael-machado-cv.pdf", "curriculo-michael-machado.pdf", "curriculo.pdf"] as const;
+export const CV_PUBLIC_FILE = "Michael_Machado_Curriculo_Publico.pdf";
+
+const CV_FILES = [
+  CV_PUBLIC_FILE,
+  "michael-machado-cv.pdf",
+  "curriculo-michael-machado.pdf",
+  "curriculo.pdf",
+] as const;
 
 export function getCvPath(): string | null {
   const publicDir = path.join(process.cwd(), "public");

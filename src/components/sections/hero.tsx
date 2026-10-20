@@ -1,5 +1,6 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { CvDownloadButton } from "@/components/cv-download-button";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/site-config";
@@ -41,7 +42,7 @@ export function Hero() {
               , que fundei, está em produção no primeiro cliente: uma escola particular em Camaçari-BA.
             </p>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button
                 href={siteConfig.whatsapp.href}
                 target="_blank"
@@ -54,6 +55,7 @@ export function Hero() {
               <Button href="#servicos" size="lg" variant="secondary" icon={<ArrowDownRight size={18} />}>
                 Como posso ajudar
               </Button>
+              <CvDownloadButton />
             </div>
 
             <p className="mt-auto hidden pt-16 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted lg:block">
