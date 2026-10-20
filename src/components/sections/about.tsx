@@ -24,7 +24,7 @@ export function About() {
               Engenharia é transformar decisões complexas em produtos claros, confiáveis e possíveis de manter.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-muted">
-              A GIA está em produção com clientes pagantes. O FORGE reúne esse trabalho, as referências
+              A GIA Escolar está em produção no primeiro cliente, uma escola particular. O FORGE reúne esse trabalho, as referências
               públicas e os estudos que mostram como penso sistemas SaaS: começando pelo problema,
               protegendo o que é privado e construindo uma base que possa evoluir.
             </p>

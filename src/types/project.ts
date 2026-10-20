@@ -1,5 +1,6 @@
 export type ProjectStatus =
   | "Em produção"
+  | "Em produção · 1º cliente"
   | "Em produção · clientes pagantes"
   | "Em desenvolvimento"
   | "Em breve";
@@ -25,10 +26,17 @@ export interface Project {
     label: string;
   };
   /**
-   * Números públicos. Deixe vazio até cada valor ser verificável.
-   * TODO(metrics): não inventar clientes, receita, prazos ou percentuais.
+   * Números já verificados. Não incluir receita, preços, outros clientes ou estimativas.
    */
   metrics?: ProjectMetric[];
+  /** Linha curta para o cartão. Só fatos que também estão em metrics. */
+  metricsSummary?: string;
+  company?: {
+    form: string;
+    cnpj: string;
+    opened: string;
+    city: string;
+  };
   featured?: boolean;
   caseStudy: {
     summary: string;
@@ -38,5 +46,10 @@ export interface Project {
     evidence: string[];
     outcome: string;
     boundary: string;
+    story?: {
+      problem: string;
+      solution: string;
+      status: string;
+    };
   };
 }

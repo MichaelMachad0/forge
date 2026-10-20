@@ -2,15 +2,31 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { projects } from "../src/data/projects.ts";
 
-test("GIA is in production with paying clients and no invented metrics", () => {
+test("GIA Escolar publishes only the verified founding-client facts", () => {
   const gia = projects.find((project) => project.slug === "gia");
   assert.ok(gia);
-  assert.equal(gia.status, "Em produção · clientes pagantes");
-  assert.equal(gia.website?.href, "https://usegia.com.br");
-  assert.deepEqual(gia.metrics, []);
+  assert.equal(gia.status, "Em produção · 1º cliente");
+  assert.equal(gia.website?.href, "https://www.usegia.com.br/");
+  assert.equal(gia.website?.label, "Visitar site do GIA");
+  assert.equal(gia.metricsSummary, "1º cliente em produção · 68 alunos");
+  assert.deepEqual(
+    gia.metrics?.map((metric) => [metric.value, metric.label]),
+    [
+      ["1", "Cliente fundador em produção"],
+      ["68", "Alunos atendidos"],
+      ["9", "Funcionários usando o sistema"],
+    ],
+  );
+  assert.equal(gia.company?.cnpj, "67.953.300/0001-66");
+  assert.match(gia.caseStudy.story?.problem ?? "", /escola particular em Camaçari-BA/);
+  assert.match(gia.caseStudy.story?.solution ?? "", /suporte técnico remoto/);
+  assert.match(gia.caseStudy.story?.status ?? "", /estágio inicial/);
   const blob = JSON.stringify(gia);
+  assert.match(blob, /Inova Simples/);
+  assert.doesNotMatch(blob, /clientes pagantes/);
   assert.doesNotMatch(blob, /\d+\s?%/);
   assert.doesNotMatch(blob, /R\$\s?\d/);
+  assert.doesNotMatch(blob, /\d{3}\.\d{3}\.\d{3}-\d{2}/);
   assert.doesNotMatch(blob, /Em desenvolvimento/);
 });
 

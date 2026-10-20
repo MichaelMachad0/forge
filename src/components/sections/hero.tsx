@@ -38,7 +38,7 @@ export function Hero() {
               >
                 GIA
               </a>
-              , SaaS modular que fundei, está em produção com clientes pagantes.
+              , que fundei, está em produção no primeiro cliente: uma escola particular em Camaçari-BA.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -87,8 +87,8 @@ export function Hero() {
           <div className="order-3 border-l border-border-subtle pl-5 sm:pl-7 lg:order-none lg:col-start-2 lg:row-start-2 lg:border-l-0 lg:pl-0">
             <div className="space-y-4 text-sm leading-6 text-muted">
               <p>
-                Sou Michael Machado, fundador da GIA e engenheiro full stack. O produto está no ar, com
-                clientes pagantes, e o código de produção permanece privado.
+                Sou Michael Machado, fundador da GIA e engenheiro full stack. A GIA Escolar está no ar no
+                cliente fundador, em estágio inicial, e o código de produção permanece privado.
               </p>
               <p>
                 Trabalho com SaaS, arquitetura de software, inteligência artificial e automação — do

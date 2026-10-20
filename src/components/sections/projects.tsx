@@ -11,14 +11,14 @@ export function Projects() {
           <div>
             <p className="eyebrow">Projetos selecionados</p>
             <p className="mt-6 max-w-xs text-sm leading-6 text-muted">
-              A GIA atende clientes pagantes. Os demais itens são referências públicas, sem código
-              comercial, dados de clientes ou infraestrutura sensível.
+              A GIA Escolar atende um cliente fundador, em estágio inicial. Os demais itens são referências
+              públicas, sem código comercial, dados de clientes ou infraestrutura sensível.
             </p>
           </div>
 
           <div>
             <h2 className="max-w-3xl text-balance text-3xl font-semibold tracking-[-0.045em] sm:text-5xl">
-              A GIA está em produção. O restante é raciocínio público, sem dados sensíveis.
+              A GIA Escolar está em produção no primeiro cliente. O restante é raciocínio público.
             </h2>
 
             <div className="mt-14 grid gap-5 md:grid-cols-2">

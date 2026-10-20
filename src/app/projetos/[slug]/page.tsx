@@ -86,22 +86,44 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="border-l border-border-subtle pl-6">
             <p className="font-mono text-[0.66rem] uppercase tracking-[0.16em] text-muted">Estado público</p>
             <p className="mt-3 text-sm text-foreground">{project.status}</p>
+            {project.metricsSummary ? (
+              <p className="mt-3 text-sm leading-6 text-muted">{project.metricsSummary}</p>
+            ) : null}
             {project.website ? (
-              <a
-                href={project.website.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-accent"
-              >
-                {project.website.href.replace(/^https:\/\//, "")}
-                <ArrowUpRight size={16} aria-hidden />
-              </a>
+              <Button href={project.website.href} target="_blank" rel="noreferrer" className="mt-6 w-full">
+                {project.website.label} <ArrowUpRight size={17} aria-hidden />
+              </Button>
             ) : null}
             <div className="mt-6 flex flex-wrap gap-2">
               {project.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
             </div>
           </div>
         </header>
+
+        {project.caseStudy.story ? (
+          <section className="grid gap-8 border-b border-border-subtle py-14 lg:grid-cols-[18rem_1fr] lg:py-20">
+            <div>
+              <p className="eyebrow">Relato</p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.035em]">
+                Problema, solução e situação
+              </h2>
+            </div>
+            <ol className="grid gap-4">
+              {(
+                [
+                  ["Problema", project.caseStudy.story.problem],
+                  ["Solução", project.caseStudy.story.solution],
+                  ["Situação", project.caseStudy.story.status],
+                ] as const
+              ).map(([title, text]) => (
+                <li key={title} className="rounded-2xl border border-border-subtle bg-surface/50 p-6">
+                  <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+                  <p className="mt-3 text-base leading-7 text-muted">{text}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ) : null}
 
         <div className="divide-y divide-border-subtle">
           {sections.map((section) => (
@@ -125,21 +147,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </div>
 
-        {/* TODO(metrics): esta lista só aparece quando project.metrics tiver números verificáveis. Não inserir estimativas. */}
         {project.metrics && project.metrics.length > 0 ? (
           <section className="grid gap-8 border-b border-border-subtle py-14 lg:grid-cols-[18rem_1fr] lg:py-20">
             <div>
               <span className="font-mono text-xs text-accent">05</span>
               <h2 className="mt-4 text-2xl font-semibold tracking-[-0.035em]">Métricas verificadas</h2>
+              <p className="mt-4 text-sm leading-6 text-muted">Estágio inicial: um único cliente.</p>
             </div>
-            <ul className="grid gap-4 sm:grid-cols-3">
-              {project.metrics.map((metric) => (
-                <li key={metric.label} className="rounded-2xl border border-border-subtle bg-surface/50 p-6">
-                  <p className="text-3xl font-semibold tracking-[-0.04em] text-foreground">{metric.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-muted">{metric.label}</p>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <ul className="grid gap-4 sm:grid-cols-3">
+                {project.metrics.map((metric) => (
+                  <li key={metric.label} className="rounded-2xl border border-border-subtle bg-surface/50 p-6">
+                    <p className="text-3xl font-semibold tracking-[-0.04em] text-foreground">{metric.value}</p>
+                    <p className="mt-2 text-sm leading-6 text-muted">{metric.label}</p>
+                  </li>
+                ))}
+              </ul>
+              {project.company ? (
+                <p className="mt-6 text-sm leading-6 text-muted">
+                  {project.company.form}. CNPJ {project.company.cnpj}. Aberta em {project.company.opened},{" "}
+                  {project.company.city}.
+                </p>
+              ) : null}
+            </div>
           </section>
         ) : null}
 
